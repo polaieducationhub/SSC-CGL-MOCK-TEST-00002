@@ -1,0 +1,3669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSC CGL Full Mock Test - POLAI EDUCATION HUB</title>
+    <!-- Google Fonts loaded for beautiful typography (fallback to system fonts when offline) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --secondary: #7c3aed;
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --text-dark: #0f172a;
+            --text-medium: #334155;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --card-border: rgba(226, 232, 240, 0.8);
+            --glass-bg: rgba(255, 255, 255, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.05), 0 4px 6px -2px rgba(0,0,0,0.02);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.08), 0 10px 10px -5px rgba(0,0,0,0.04);
+            
+            /* Question Palette Colors */
+            --color-unvisited: #e2e8f0;
+            --color-answered: #10b981;
+            --color-not-answered: #ef4444;
+            --color-marked: #8b5cf6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Standard Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulseBorder {
+            0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
+            70% { box-shadow: 0 0 0 8px rgba(79, 70, 229, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .animated-fade {
+            animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* HEADER */
+        header {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            background: white;
+            color: var(--primary);
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-title-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        .header-subtitle {
+            font-size: 12px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* SOUND PANEL STYLING */
+        .sound-widget {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 6px 14px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sound-widget span {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .sound-btn {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+            opacity: 0.9;
+        }
+
+        .sound-btn:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .sound-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .volume-slider {
+            width: 70px;
+            height: 4px;
+            -webkit-appearance: none;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+        }
+
+        /* TIMER BOX */
+        .timer-box {
+            background: white;
+            color: var(--text-dark);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow-sm);
+            border: 1.5px solid #e2e8f0;
+            transition: all 0.3s;
+        }
+
+        .timer-box.warning {
+            border-color: var(--danger);
+            color: var(--danger);
+            animation: pulseBorder 1.5s infinite;
+        }
+
+        .timer-icon {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.5;
+        }
+
+        /* MAIN CONTAINER SCREEN STATES */
+        .screen {
+            display: none;
+            flex: 1;
+            padding: 24px;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .screen.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 1. STARTING SCREEN */
+        #start-screen {
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 120px);
+            gap: 30px;
+            padding: 40px 20px;
+        }
+
+        .welcome-title-block {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .welcome-title-block h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .welcome-title-block p {
+            color: var(--text-muted);
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .start-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .form-card {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-card h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 12px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-medium);
+        }
+
+        .input-group input {
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1.5px solid #cbd5e1;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s;
+            background: #f8fafc;
+        }
+
+        .input-group input:focus {
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+        }
+
+        .toggle-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f1f5f9;
+            padding: 12px 16px;
+            border-radius: 10px;
+            margin-top: 5px;
+        }
+
+        .toggle-label-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .toggle-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .toggle-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* Switch Styling */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 46px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #cbd5e1;
+            transition: .3s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+
+        .start-btn {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+        }
+
+        .start-btn:active {
+            transform: translateY(0);
+        }
+
+        .rules-card {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .rules-card h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--secondary);
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 12px;
+        }
+
+        .rules-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .rules-list li {
+            font-size: 14px;
+            color: var(--text-medium);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+        }
+
+        .rules-list li svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: var(--success);
+            stroke-width: 2.5;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* 2. TEST INTERFACE */
+        #test-screen {
+            padding: 15px;
+            max-width: 100%;
+            height: calc(100vh - 65px);
+            gap: 12px;
+        }
+
+        .test-section-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-tabs {
+            display: flex;
+            gap: 8px;
+        }
+
+        .section-tab {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            border: 1.5px solid #e2e8f0;
+            background: #f8fafc;
+            color: var(--text-medium);
+            cursor: not-allowed;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .section-tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .section-tab.unlocked {
+            cursor: pointer;
+            border-color: #cbd5e1;
+            background: white;
+            color: var(--text-dark);
+        }
+
+        .section-tab.locked svg {
+            width: 12px;
+            height: 12px;
+            fill: currentColor;
+        }
+
+        .section-tab.completed {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            border-color: var(--success);
+        }
+
+        .section-tab.completed svg {
+            width: 12px;
+            height: 12px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 3;
+        }
+
+        .section-timer-display {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--secondary);
+            background: #faf5ff;
+            border: 1px dashed #d8b4fe;
+            padding: 6px 12px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            flex-shrink: 0;
+            background: #e2e8f0;
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            background: var(--primary-gradient);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* Test Main Workspace Grid */
+        .test-workspace {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 15px;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* LEFT PANEL: QUESTION PALETTE */
+        .palette-panel {
+            background: white;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            overflow-y: auto;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .palette-panel h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-dark);
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 8px;
+        }
+
+        .palette-legend {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .legend-color.unvisited { background-color: var(--color-unvisited); border: 1px solid #cbd5e1; }
+        .legend-color.answered { background-color: var(--color-answered); }
+        .legend-color.not-answered { background-color: var(--color-not-answered); }
+        .legend-color.marked { background-color: var(--color-marked); }
+
+        .palette-grid-container {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+        }
+
+        .palette-btn {
+            aspect-ratio: 1;
+            border: none;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-medium);
+            background: var(--color-unvisited);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            border: 1px solid #cbd5e1;
+        }
+
+        .palette-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .palette-btn.active {
+            outline: 2px solid var(--primary);
+            outline-offset: 1px;
+        }
+
+        .palette-btn.unvisited {
+            background-color: var(--color-unvisited);
+            color: var(--text-medium);
+            border: 1px solid #cbd5e1;
+        }
+
+        .palette-btn.answered {
+            background-color: var(--color-answered);
+            color: white;
+            border-color: var(--color-answered);
+        }
+
+        .palette-btn.not-answered {
+            background-color: var(--color-not-answered);
+            color: white;
+            border-color: var(--color-not-answered);
+        }
+
+        .palette-btn.marked {
+            background-color: var(--color-marked);
+            color: white;
+            border-color: var(--color-marked);
+        }
+
+        /* RIGHT PANEL: QUESTION PANEL */
+        .question-panel {
+            background: white;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .question-header {
+            padding: 12px 20px;
+            background: #f8fafc;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .q-number-info {
+            font-family: 'Outfit', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .q-marks-info {
+            display: flex;
+            gap: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .marks-badge {
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .marks-badge.positive {
+            background: #ecfdf5;
+            color: var(--success);
+        }
+
+        .marks-badge.negative {
+            background: #fef2f2;
+            color: var(--danger);
+        }
+
+        .lang-selector {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1.5px solid #cbd5e1;
+            font-size: 12px;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            background: white;
+        }
+
+        .question-body-scroller {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .question-text {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: center;
+            padding: 14px 20px;
+            border-radius: 10px;
+            border: 1.5px solid #e2e8f0;
+            background: #f8fafc;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-medium);
+        }
+
+        .option-item:hover {
+            border-color: #cbd5e1;
+            background: #f1f5f9;
+        }
+
+        .option-item.selected {
+            border-color: var(--primary);
+            background: #f5f3ff;
+            color: var(--primary);
+        }
+
+        .option-radio {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            border: 2px solid #cbd5e1;
+            margin-right: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .option-item.selected .option-radio {
+            border-color: var(--primary);
+        }
+
+        .option-item.selected .option-radio::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: block;
+        }
+
+        .option-text {
+            line-height: 1.4;
+        }
+
+        /* SVG Shape Renderers (specifically for Q22, Q68, Q14) */
+        .q-figure-container {
+            background: #fafafc;
+            border: 1.5px dashed #e2e8f0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+        }
+
+        /* Action Buttons Area */
+        .question-footer {
+            padding: 16px 20px;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-left, .footer-right {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1.5px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-outline {
+            border-color: #cbd5e1;
+            background: white;
+            color: var(--text-medium);
+        }
+
+        .btn-outline:hover {
+            border-color: #94a3b8;
+            background: #f8fafc;
+            color: var(--text-dark);
+        }
+
+        .btn-danger-outline {
+            border-color: #fecaca;
+            background: #fef2f2;
+            color: var(--danger);
+        }
+
+        .btn-danger-outline:hover {
+            background: #fee2e2;
+            border-color: var(--danger);
+        }
+
+        .btn-purple {
+            background: #faf5ff;
+            border-color: #d8b4fe;
+            color: var(--secondary);
+        }
+
+        .btn-purple:hover {
+            background: #f3e8ff;
+            border-color: var(--secondary);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        .btn svg {
+            width: 14px;
+            height: 14px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.5;
+        }
+
+        /* 3. RESULT PAGE SCREEN */
+        #result-screen {
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 40px 20px;
+        }
+
+        .result-container {
+            width: 100%;
+            max-width: 900px;
+            padding: 40px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .congrats-header h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 6px;
+        }
+
+        .congrats-header p {
+            color: var(--text-muted);
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .candidate-summary {
+            background: #f8fafc;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+            border: 1px solid #cbd5e1;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 30px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .result-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .score-chart-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .circular-chart {
+            width: 200px;
+            height: 200px;
+        }
+
+        .circular-chart circle {
+            fill: none;
+            stroke-width: 3.8;
+            stroke-linecap: round;
+        }
+
+        .circular-chart .bg {
+            stroke: #e2e8f0;
+        }
+
+        .circular-chart .bar {
+            stroke: var(--primary);
+            transition: stroke-dasharray 1s ease;
+        }
+
+        .score-display-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay-score {
+            font-family: 'Outfit', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1;
+        }
+
+        .overlay-label {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        .pass-badge {
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .pass-badge.pass {
+            background: #d1fae5;
+            color: var(--success);
+        }
+
+        .pass-badge.fail {
+            background: #fee2e2;
+            color: var(--danger);
+        }
+
+        .metrics-card {
+            background: white;
+            border: 1.5px solid var(--card-border);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .metric-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .metric-label {
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .metric-value {
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .action-block {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .cert-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cert-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.35);
+        }
+
+        /* 4. MODALS */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: white;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 480px;
+            padding: 30px;
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: scaleIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            text-align: center;
+        }
+
+        .modal-icon-container {
+            width: 60px;
+            height: 60px;
+            background: #faf5ff;
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        .modal-icon-container.danger {
+            background: #fef2f2;
+            color: var(--danger);
+        }
+
+        .modal-icon-container svg {
+            width: 30px;
+            height: 30px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        .modal-card h3 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .modal-card p {
+            font-size: 14px;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        .modal-btn {
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* CONFETTI CANVAS */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        /* FOOTER */
+        footer {
+            background: white;
+            border-top: 1px solid var(--card-border);
+            padding: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: auto;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        .footer-socials a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .footer-socials span {
+            color: #cbd5e1;
+        }
+
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 900px) {
+            .start-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .test-workspace {
+                grid-template-columns: 1fr;
+            }
+
+            .palette-panel {
+                order: 2;
+                max-height: 300px;
+            }
+
+            .question-panel {
+                order: 1;
+                flex: 1;
+            }
+
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-block {
+                flex-direction: column;
+            }
+
+            .sound-widget {
+                display: none; /* Hide complex widgets on small headers */
+            }
+
+            header {
+                padding: 10px 16px;
+            }
+
+            .header-title {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-logo">
+            <div class="logo-icon">P</div>
+            <div class="header-title-container">
+                <span class="header-title">POLAI EDUCATION HUB</span>
+                <span class="header-subtitle">SSC CGL FULL MOCK TEST</span>
+            </div>
+        </div>
+
+        <div class="header-controls">
+            <!-- SOUND PANEL -->
+            <div class="sound-widget">
+                <span>Music:</span>
+                <button class="sound-btn" id="music-toggle-btn" title="Toggle Background Music">
+                    <!-- Audio Mute Icon -->
+                    <svg viewBox="0 0 24 24" id="audio-icon-off"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM4.3 3L3 4.3 8.7 10H4v4h3l5 5v-6.7l4.3 4.3c-.5.4-1.1.7-1.8.9v2.1c1.2-.3 2.3-.9 3.2-1.7l3 3 1.3-1.3L4.3 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
+                </button>
+                <input type="range" class="volume-slider" id="volume-slider" min="0" max="100" value="50" title="Adjust Volume">
+            </div>
+
+            <!-- MAIN TIMER -->
+            <div class="timer-box" id="main-timer-box" style="display: none;">
+                <!-- Clock Icon -->
+                <svg class="timer-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <span id="main-timer-text">60:00</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. STARTING SCREEN -->
+    <div class="screen active animated-fade" id="start-screen">
+        <div class="welcome-title-block">
+            <h1>SSC CGL FULL MOCK TEST 2026</h1>
+            <p>POLAI EDUCATION HUB</p>
+        </div>
+
+        <div class="start-grid">
+            <!-- Form Card -->
+            <div class="glass-card form-card">
+                <h2>Candidate Entry</h2>
+                
+                <div class="input-group">
+                    <label for="candidate-name">Candidate Name *</label>
+                    <input type="text" id="candidate-name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="roll-number">Roll Number (Optional)</label>
+                    <input type="text" id="roll-number" placeholder="Enter your roll number">
+                </div>
+
+                <div class="toggle-group">
+                    <div class="toggle-label-container">
+                        <span class="toggle-label">Negative Marking</span>
+                        <span class="toggle-desc">Enable standard SSC penalty (-0.50 marks)</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="neg-marking-toggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <button class="start-btn" id="start-test-btn">
+                    <span>START TEST</span>
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+            </div>
+
+            <!-- Rules Card -->
+            <div class="glass-card rules-card">
+                <h2>Test Guidelines</h2>
+                <ul class="rules-list">
+                    <li>
+                        <!-- Check Icon -->
+                        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span><strong>Total Questions:</strong> 100 questions covering 4 major subjects.</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span><strong>Duration:</strong> 60 minutes overall, divided into <strong>4 equal sections of 15 minutes each</strong>.</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span><strong>Section Lock:</strong> Sections are locked sequentially. The next section opens <strong>automatically</strong> every 15 minutes.</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span><strong>No Early Exit:</strong> You cannot skip ahead to the next section before the current section timer finishes.</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+                        <span><strong>Marking Scheme:</strong> Correct answers yield <strong>+2.00 marks</strong>. Incorrect answers deduct <strong>-0.50 marks</strong> (if penalty is ON).</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. TEST INTERFACE -->
+    <div class="screen" id="test-screen">
+        <!-- Section Bar -->
+        <div class="test-section-bar">
+            <div class="section-tabs" id="section-tabs-container">
+                <div class="section-tab active" data-section="1">
+                    <span>1. Reasoning</span>
+                </div>
+                <div class="section-tab locked" data-section="2">
+                    <!-- Lock Icon -->
+                    <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    <span>2. General Awareness</span>
+                </div>
+                <div class="section-tab locked" data-section="3">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    <span>3. Quantitative Aptitude</span>
+                </div>
+                <div class="section-tab locked" data-section="4">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    <span>4. English Language</span>
+                </div>
+            </div>
+
+            <!-- Section Timer -->
+            <div class="section-timer-display">
+                <!-- Clock / Hourglass Icon -->
+                <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2v20M17 5H7M17 19H7M17 5a5 5 0 0 0-5 5v4a5 5 0 0 0 5 5M7 5a5 5 0 0 1 5 5v4a5 5 0 0 1-5 5"/></svg>
+                <span>Section Timer: <strong id="section-timer-text">15:00</strong></span>
+            </div>
+        </div>
+
+        <!-- Progress Indicator -->
+        <div class="progress-container">
+            <div class="progress-bar" id="test-progress-bar"></div>
+        </div>
+
+        <!-- Main Workspace Grid -->
+        <div class="test-workspace">
+            <!-- LEFT PANEL: QUESTION PALETTE -->
+            <div class="palette-panel">
+                <h3>Question Palette</h3>
+                
+                <div class="palette-legend">
+                    <div class="legend-item">
+                        <div class="legend-color unvisited"></div>
+                        <span>Not Visited</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color answered"></div>
+                        <span>Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color not-answered"></div>
+                        <span>Not Answered</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color marked"></div>
+                        <span>Marked for Review</span>
+                    </div>
+                </div>
+
+                <div class="palette-grid-container">
+                    <div class="palette-grid" id="palette-grid-el">
+                        <!-- Questions 1-100 buttons injected here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT PANEL: QUESTION CONTAINER -->
+            <div class="question-panel">
+                <!-- Header of panel -->
+                <div class="question-header">
+                    <div>
+                        <span class="q-number-info" id="question-title-text">Question 1</span>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <!-- Bilingual Selector -->
+                        <select class="lang-selector" id="lang-selector-btn">
+                            <option value="en">English</option>
+                            <option value="hi">हिंदी (Hindi)</option>
+                        </select>
+
+                        <!-- Marks display -->
+                        <div class="q-marks-info">
+                            <span class="marks-badge positive">Correct: +2.00</span>
+                            <span class="marks-badge negative" id="neg-marking-badge">Incorrect: -0.50</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Body of panel -->
+                <div class="question-body-scroller" id="question-body-scroller">
+                    <div class="question-text" id="question-text-el">
+                        <!-- Question text here -->
+                    </div>
+
+                    <!-- Figure placement (if any) -->
+                    <div id="figure-display-el" style="display: none;"></div>
+
+                    <div class="options-list" id="options-container-el">
+                        <!-- Option items here -->
+                    </div>
+                </div>
+
+                <!-- Footer of panel (Actions) -->
+                <div class="question-footer">
+                    <div class="footer-left">
+                        <button class="btn btn-purple" id="mark-review-btn">
+                            <!-- Shield Check Icon -->
+                            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            <span>Mark For Review</span>
+                        </button>
+                        <button class="btn btn-outline" id="clear-response-btn">
+                            <!-- Trash Icon -->
+                            <svg viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                            <span>Clear Response</span>
+                        </button>
+                    </div>
+
+                    <div class="footer-right">
+                        <button class="btn btn-outline" id="prev-question-btn">
+                            <!-- Left Arrow -->
+                            <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                            <span>Previous</span>
+                        </button>
+                        <button class="btn btn-primary" id="save-next-btn">
+                            <span>Save & Next</span>
+                            <!-- Right Arrow -->
+                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. RESULT PAGE SCREEN -->
+    <div class="screen animated-fade" id="result-screen">
+        <div class="glass-card result-container">
+            <div class="congrats-header">
+                <h1>Test Submitted Successfully!</h1>
+                <p>POLAI EDUCATION HUB</p>
+            </div>
+
+            <!-- Candidate name / roll details bar -->
+            <div class="candidate-summary">
+                Candidate: <span id="res-candidate-name">Prashanth</span> &nbsp;|&nbsp; 
+                Roll: <span id="res-roll-number">20260123</span>
+            </div>
+
+            <!-- Result Grid (Circular chart and metrics) -->
+            <div class="result-grid">
+                <!-- Circular chart -->
+                <div class="result-left">
+                    <div class="score-chart-container">
+                        <svg class="circular-chart" viewBox="0 0 36 36">
+                            <path class="bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <path class="bar" id="score-stroke-path" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        </svg>
+                        <div class="score-display-overlay">
+                            <span class="overlay-score" id="res-marks-obtained">124.50</span>
+                            <span class="overlay-label">Score out of 200</span>
+                        </div>
+                    </div>
+
+                    <!-- Pass / Fail Badge -->
+                    <div class="pass-badge pass" id="res-pass-fail-badge">PASS</div>
+                </div>
+
+                <!-- Detailed Metrics -->
+                <div class="metrics-card">
+                    <div class="metric-row">
+                        <div class="metric-label">
+                            <svg width="16" height="16" fill="none" stroke="var(--success)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+                            <span>Correct Answers:</span>
+                        </div>
+                        <span class="metric-value" id="res-correct-count">72</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <div class="metric-label">
+                            <svg width="16" height="16" fill="none" stroke="var(--danger)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                            <span>Wrong Answers:</span>
+                        </div>
+                        <span class="metric-value" id="res-wrong-count">14</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <div class="metric-label">
+                            <svg width="16" height="16" fill="none" stroke="var(--text-muted)" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+                            <span>Skipped Questions:</span>
+                        </div>
+                        <span class="metric-value" id="res-skipped-count">14</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <div class="metric-label">
+                            <svg width="16" height="16" fill="none" stroke="var(--info)" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            <span>Time Taken:</span>
+                        </div>
+                        <span class="metric-value" id="res-time-taken">45 mins 12 secs</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <div class="metric-label">
+                            <svg width="16" height="16" fill="none" stroke="var(--warning)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <span>Percentage Score:</span>
+                        </div>
+                        <span class="metric-value" id="res-percentage">62.25%</span>
+                    </div>
+
+                    <div class="metric-row">
+                        <div class="metric-label">
+                            <svg width="16" height="16" fill="none" stroke="var(--secondary)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 2l9 4-9 4-9-4 9-4zM3 10l9 4 9-4M3 14l9 4 9-4"/></svg>
+                            <span>Calculated Rank:</span>
+                        </div>
+                        <span class="metric-value" id="res-rank">#42 / 10000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificate Actions -->
+            <div style="border-top: 1.5px solid #f1f5f9; padding-top: 20px; width: 100%;">
+                <h3 style="font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 12px; color: var(--text-dark);">Your Certificate of Achievement</h3>
+                <div class="action-block">
+                    <button class="cert-btn" id="dl-png-btn">
+                        <!-- Image Icon -->
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+                        <span>Download PNG</span>
+                    </button>
+                    <button class="cert-btn" style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);" id="dl-pdf-btn">
+                        <!-- File PDF Icon -->
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                        <span>Download PDF</span>
+                    </button>
+                    <button class="btn btn-outline" style="padding: 12px 24px;" id="restart-test-btn">Restart Test</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL OVERLAYS -->
+    <div class="modal-overlay" id="section-modal">
+        <div class="modal-card">
+            <div class="modal-icon-container">
+                <!-- Success icon -->
+                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            </div>
+            <h3 id="modal-title-text">Section Completed</h3>
+            <p id="modal-desc-text">Section 1 timing is completed. Moving to Section 2 automatically.</p>
+            <button class="modal-btn" id="modal-close-btn">PROCEED TO NEXT SECTION</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Best of Luck for SSC CGL 2026</p>
+        <div class="footer-socials">
+            <span>YouTube:</span>
+            <a href="#" target="_blank">POLAI EDUCATION HUB</a>
+            <span>•</span>
+            <span>Like 👍</span>
+            <span>•</span>
+            <span>Share 🔄</span>
+            <span>•</span>
+            <span>Subscribe 🔔</span>
+        </div>
+    </footer>
+
+    <!-- INLINE QUESTIONS & SCRIPT LOGIC -->
+    <script>
+        // QUESTION DATABASE (100 Questions compiled from रविवार मॉक सीरीज 200)
+        const QUESTIONS = [
+            // --- SECTION 1: REASONING (Q1-25) ---
+            {
+                id: 1, section: 1,
+                text_en: "Select the number pair in which the two numbers are related in the same way as are the two numbers of the given number pair.<br><br><strong>8/10 : 164</strong>",
+                text_hi: "उस संख्या युग्म का चयन कीजिए जिसमें दो संख्याएँ उसी प्रकार संबंधित हैं जिस प्रकार दी गई संख्या युग्म की दो संख्याएँ संबंधित हैं।<br><br><strong>8/10 : 164</strong>",
+                options_en: ["9/11 : 189", "7/12 : 193", "11/13 : 304", "25/14 : 841"],
+                options_hi: ["9/11 : 189", "7/12 : 193", "11/13 : 304", "25/14 : 841"],
+                correct: 1 // (b) 7^2 + 12^2 = 49 + 144 = 193
+            },
+            {
+                id: 2, section: 1,
+                text_en: "Statements:<br>All notebooks are pink.<br>All pinks are shirts.<br>Some shirts are trousers.<br><br>Conclusions:<br>I. All trousers are notebooks.<br>II. Some trousers are pink.",
+                text_hi: "कथन:<br>सभी नोटबुक गुलाबी हैं।<br>सभी गुलाबी शर्ट हैं।<br>कुछ शर्ट ट्राउजर हैं।<br><br>निष्कर्ष:<br>I. सभी ट्राउजर नोटबुक हैं।<br>II. कुछ ट्राउजर गुलाबी हैं।",
+                options_en: ["Only conclusion I follows", "Both conclusions I and II follow", "Neither conclusion I nor II follows", "Only conclusion II follows"],
+                options_hi: ["केवल निष्कर्ष I अनुसरण करता है", "निष्कर्ष I और II दोनों अनुसरण करते हैं", "न तो निष्कर्ष I और न ही II अनुसरण करता है", "केवल निष्कर्ष II अनुसरण करता है"],
+                correct: 2 // (c) Neither follows
+            },
+            {
+                id: 3, section: 1,
+                text_en: "'A & B' means 'A is the father of B'<br>'A @ B' means 'A is the mother of B'<br>'A + B' means 'A is the husband of B'<br>'A # B' means 'A is the sister of B'<br><br>If <strong>D + C @ R & T + U # M</strong>, then how is T related to D?",
+                text_hi: "'A & B' का अर्थ है 'A, B का पिता है'<br>'A @ B' का अर्थ है 'A, B की माता है'<br>'A + B' का अर्थ है 'A, B का पति है'<br>'A # B' का अर्थ है 'A, B की बहन है'<br><br>यदि <strong>D + C @ R & T + U # M</strong> है, तो T, D से किस प्रकार संबंधित है?",
+                options_en: ["Son-in-law", "Maternal grandson", "Paternal grandson", "Nephew"],
+                options_hi: ["दामाद", "नाती (मातृ पोता)", "पोता (पितृ पोता)", "भांजा/भतीजा"],
+                correct: 2 // (c) Paternal grandson
+            },
+            {
+                id: 4, section: 1,
+                text_en: "What will come in place of the question mark (?) in the following equation, if '+' and '-' are interchanged and 'x' and '/' are interchanged?<br><br><strong>14014 x 14 - 10 / 8 + 14 = ?</strong>",
+                text_hi: "निम्नलिखित समीकरण में यदि '+' और '-' को आपस में बदल दिया जाए तथा 'x' और '/' को आपस में बदल दिया जाए, तो प्रश्न चिह्न (?) के स्थान पर क्या आएगा?<br><br><strong>14014 x 14 - 10 / 8 + 14 = ?</strong>",
+                options_en: ["1062", "1063", "1067", "1064"],
+                options_hi: ["1062", "1063", "1067", "1064"],
+                correct: 2 // (c) 1067
+            },
+            {
+                id: 5, section: 1,
+                text_en: "Statements:<br>All snakes are crocodiles.<br>All crocodiles are turtles.<br>All birds are crocodiles.<br><br>Conclusions:<br>I. All snake are turtles.<br>II. All birds are turtles.<br>III. Some snakes are birds.",
+                text_hi: "कथन:<br>सभी साँप, मगरमच्छ हैं।<br>सभी मगरमच्छ, कछुए हैं।<br>सभी पक्षी, मगरमच्छ हैं।<br><br>निष्कर्ष:<br>I. सभी साँप, कछुए हैं।<br>II. सभी पक्षी, कछुए हैं।<br>III. कुछ साँप, पक्षी हैं।",
+                options_en: ["None of the conclusions follows", "Only conclusion I and II follow", "Only conclusions II and III follow", "Only conclusion I follows"],
+                options_hi: ["कोई भी निष्कर्ष अनुसरण नहीं करता है", "केवल निष्कर्ष I और II अनुसरण करते हैं", "केवल निष्कर्ष II और III अनुसरण करते हैं", "केवल निष्कर्ष I अनुसरण करता है"],
+                correct: 1 // (b) Only I and II follow
+            },
+            {
+                id: 6, section: 1,
+                text_en: "Select the option that has the same relation between the words as the relation between the words of the given pair.<br><br><strong>Bonnet : Car</strong>",
+                text_hi: "उस विकल्प का चयन कीजिये जिसके शब्दों के बीच वैसा ही संबंध हो, जैसा संबंध दिए गए शब्द युग्म के शब्दों के बीच है।<br><br><strong>बोनट : कार</strong>",
+                options_en: ["Vehicle : Driver", "Park : Children", "Air : Airplane", "Kitchen : House"],
+                options_hi: ["वाहन : चालक", "पार्क : बच्चे", "वायु : वायुयान", "रसोई : घर"],
+                correct: 3 // (d) Kitchen : House
+            },
+            {
+                id: 7, section: 1,
+                text_en: "By interchanging the given two numbers (Not digits) which of the following equations will be correct?<br><strong>4 and 3</strong>",
+                text_hi: "दी गई दो संख्याओं (अंकों को नहीं) को आपस में बदलने पर निम्नलिखित में से कौन-सा समीकरण सही होगा?<br><strong>4 और 3</strong>",
+                options_en: ["3 x 4 ÷ 2 + 7 = 17", "7 x 4 + 3 ÷ 1 = 30", "4 + 3 x 7 - 2 = 29", "4 x 3 + 7 - 5 = 16"],
+                options_hi: ["3 x 4 ÷ 2 + 7 = 17", "7 x 4 + 3 ÷ 1 = 30", "4 + 3 x 7 - 2 = 29", "4 x 3 + 7 - 5 = 16"],
+                correct: 2 // (c) 3 + 4 x 7 - 2 = 29
+            },
+            {
+                id: 8, section: 1,
+                text_en: "In a certain code, TEAM is written as WHDP. How will COINS be written in that code?",
+                text_hi: "एक निश्चित कूट में, TEAM को WHDP लिखा जाता है। उसी कूट में COINS को किस प्रकार लिखा जाएगा?",
+                options_en: ["QJPTU", "FRLBZ", "FRLQV", "RVJQL"],
+                options_hi: ["QJPTU", "FRLBZ", "FRLQV", "RVJQL"],
+                correct: 2 // (c) FRLQV
+            },
+            {
+                id: 9, section: 1,
+                text_en: "Your friend came to your house for group study. While switching on the fan, he got an electric shock. What will you do immediately?",
+                text_hi: "आपका मित्र समूह अध्ययन के लिए आपके घर आया। पंखे को चालू करते समय उसे बिजली का झटका लगा। आप तुरंत क्या करेंगे?",
+                options_en: ["Get tensed and panic", "Call for help immediately", "Pull him away with bare hands", "Switch off the mains electricity supply"],
+                options_hi: ["भयभीत और चिंतित हो जाएंगे", "मदद के लिए कॉल करेंगे", "उसे अपने हाथों से सीधे खींचेंगे", "मेंस (मुख्य स्विच) को तुरंत बंद कर देंगे"],
+                correct: 3 // (d) Switch off mains
+            },
+            {
+                id: 10, section: 1,
+                text_en: "In a certain code language, 'BR-EW' is coded as '8' and 'CA-LF' is coded as '14'. What is the code for 'DA-WN' in that code language?",
+                text_hi: "एक निश्चित कूट भाषा में, 'BR-EW' का कूट '8' है, 'CA-LF' का कूट '14' है। उसी कूट भाषा में 'DA-WN' का कूट क्या है?",
+                options_en: ["30", "32", "34", "36"],
+                options_hi: ["30", "32", "34", "36"],
+                correct: 1 // (b) 32 (Matches Key A if mapped, adjusted to B for correctness)
+            },
+            {
+                id: 11, section: 1,
+                text_en: "Select the option that is related to the fifth letter-cluster in the same way as the second letter-cluster is related to the first letter-cluster and the fourth letter-cluster is related to the third letter-cluster.<br><br><strong>GOOD : IMQB :: CARE : EYTC :: SAVE : ?</strong>",
+                text_hi: "उस विकल्प का चयन करें जो पांचवें अक्षर-समूह से उसी प्रकार संबंधित है जैसे दूसरा अक्षर-समूह पहले अक्षर-समूह से और चौथा अक्षर-समूह तीसरे अक्षर-समूह से संबंधित है।<br><br><strong>GOOD : IMQB :: CARE : EYTC :: SAVE : ?</strong>",
+                options_en: ["QCTG", "UXXC", "UYXC", "UYTG"],
+                options_hi: ["QCTG", "UXXC", "UYXC", "UYTG"],
+                correct: 2 // (c) UYXC
+            },
+            {
+                id: 12, section: 1,
+                text_en: "In the following question, find the missing number from the given series:<br><br><strong>10, 29, 85, 252, ?</strong>",
+                text_hi: "निम्नलिखित प्रश्न में दी गई श्रृंखला में से लुप्त संख्या ज्ञात कीजिए:<br><br><strong>10, 29, 85, 252, ?</strong>",
+                options_en: ["756", "752", "758", "754"],
+                options_hi: ["756", "752", "758", "754"],
+                correct: 1 // (b) 752
+            },
+            {
+                id: 13, section: 1,
+                text_en: "Select the letter that will replace the question mark (?) in the following series:<br><br><strong>K, Q, V, ?, C, E, F</strong>",
+                text_hi: "उस अक्षर का चयन कीजिए जो निम्नलिखित श्रृंखला में प्रश्न चिह्न (?) के स्थान पर आएगा:<br><br><strong>K, Q, V, ?, C, E, F</strong>",
+                options_en: ["A", "Z", "X", "Y"],
+                options_hi: ["A", "Z", "X", "Y"],
+                correct: 1 // (b) Z
+            },
+            {
+                id: 14, section: 1,
+                text_en: "Select a figure which will continue the same series as established by the five Problem Figures below:",
+                text_hi: "एक आकृति का चयन कीजिए जो नीचे दी गई पांच प्रश्न आकृतियों द्वारा स्थापित समान श्रृंखला को जारी रखेगी:",
+                options_en: ["Figure (a) - [Y, ★, ▵, ▢, ◯]", "Figure (b) - [X, ★, ▢, Y, ◯]", "Figure (c) - [+, ★, ▢, Y, ◯]", "Figure (d) - [▵, ★, ▢, Y, ◯]"],
+                options_hi: ["आकृति (a) - [Y, ★, ▵, ▢, ◯]", "आकृति (b) - [X, ★, ▢, Y, ◯]", "आकृति (c) - [+, ★, ▢, Y, ◯]", "आकृति (d) - [▵, ★, ▢, Y, ◯]"],
+                correct: 2, // (c)
+                hasFigure: "q14"
+            },
+            {
+                id: 15, section: 1,
+                text_en: "A person buys 8 articles at the rate of Rs. 10 each and 12 articles at the rate of Rs. 15 each. What will be the average price (in Rs.) per article?",
+                text_hi: "एक व्यक्ति 10 रुपये की दर से 8 वस्तुएं खरीदता है और 15 रुपये की दर से 12 वस्तुएं खरीदता है। प्रति वस्तु औसत मूल्य (रुपये में) कितना होगा?",
+                options_en: ["12.5", "12", "13", "8"],
+                options_hi: ["12.5", "12", "13", "8"],
+                correct: 2 // (c) 13
+            },
+            {
+                id: 16, section: 1,
+                text_en: "Each of the letters below has been assigned a unique number. Select the combination of numbers such that the corresponding letters when arranged accordingly will form a meaningful word.<br><br><strong>R A S E M T</strong><br>3 2 7 8 5 9",
+                text_hi: "नीचे दिए गए प्रत्येक अक्षर को एक अलग संख्या दी गई है। संख्याओं के संयोजन का चयन इस प्रकार कीजिए कि संबंधित अक्षरों को तदनुसार व्यवस्थित करने पर एक सार्थक शब्द बन जाए।<br><br><strong>R A S E M T</strong><br>3 2 7 8 5 9",
+                options_en: ["5, 2, 7, 9, 8, 3", "3, 5, 2, 8, 9, 7", "9, 5, 3, 2, 7, 8", "7, 5, 2, 3, 9, 8"],
+                options_hi: ["5, 2, 7, 9, 8, 3", "3, 5, 2, 8, 9, 7", "9, 5, 3, 2, 7, 8", "7, 5, 2, 3, 9, 8"],
+                correct: 0 // (a)
+            },
+            {
+                id: 17, section: 1,
+                text_en: "Which of the following numbers will replace the question mark (?) in the given series?<br><br><strong>18, 23, ?, 41, 54, 71</strong>",
+                text_hi: "निम्नलिखित में से कौन सी संख्या दी गई श्रृंखला में प्रश्न चिह्न (?) को प्रतिस्थापित करेगी?<br><br><strong>18, 23, ?, 41, 54, 71</strong>",
+                options_en: ["29", "30", "32", "34"],
+                options_hi: ["29", "30", "32", "34"],
+                correct: 1 // (b) 30 (Primes: +5, +7, +11, +13, +17)
+            },
+            {
+                id: 18, section: 1,
+                text_en: "Select the correct alternative to indicate the arrangement of the following words in a logical and meaningful order.<br><br><strong>1. Cloud, 2. Shelter, 3. Monsoon, 4. Rain, 5. Flood, 6. Relief</strong>",
+                text_hi: "निम्नलिखित शब्दों को एक तार्किक और सार्थक क्रम में व्यवस्थित करने के लिए सही विकल्प का चयन करें।<br><br><strong>1. बादल, 2. आश्रय, 3. मानसून, 4. वर्षा, 5. बाढ़, 6. राहत</strong>",
+                options_en: ["1, 3, 4, 5, 6, 2", "3, 1, 4, 2, 5, 6", "3, 1, 4, 5, 2, 6", "4, 1, 2, 5, 6, 2"],
+                options_hi: ["1, 3, 4, 5, 6, 2", "3, 1, 4, 2, 5, 6", "3, 1, 4, 5, 2, 6", "4, 1, 2, 5, 6, 2"],
+                correct: 2 // (c) 3, 1, 4, 5, 2, 6
+            },
+            {
+                id: 19, section: 1,
+                text_en: "The distinct letters of the word <strong>EXTRAORDINARY</strong> are arranged in alphabetical order. What is the letter in the fifth position from the left?",
+                text_hi: "शब्द <strong>EXTRAORDINARY</strong> के अक्षरों को वर्णानुक्रम में व्यवस्थित किया जाता है। बाएं से पांचवें स्थान पर कौन सा अक्षर होगा?",
+                options_en: ["N", "O", "I", "A"],
+                options_hi: ["N", "O", "I", "A"],
+                correct: 2 // (c) I (If keeping duplicate count or mapping 19: C)
+            },
+            {
+                id: 20, section: 1,
+                text_en: "Hemant walks from his house and moves 4 meters towards North. He turns at 90° to his right and moves 3 meters. He takes another 90° turn to the right and walks 4 meters. From here, Hemant turns 90° to the left and moves another 1 meter. He finally turns 90° to the right and moves for another 3 meters to reach his final destination. What is the shortest distance between the starting and destination points?",
+                text_hi: "हेमंत अपने घर से निकलता है और उत्तर की ओर 4 मीटर चलता है। वह अपने दाहिने ओर 90° मुड़ता है और 3 मीटर चलता है। वह फिर से दाहिने ओर 90° मुड़ता है और 4 मीटर चलता है। यहाँ से हेमंत बाईं ओर 90° मुड़ता है और 1 मीटर चलता है। वह अंत में दाहिने ओर 90° मुड़ता है और 3 मीटर और चलकर अपने गंतव्य पर पहुँचता है। प्रारंभिक और गंतव्य बिंदुओं के बीच न्यूनतम दूरी क्या है?",
+                options_en: ["4 meters", "5 meters", "7 meters", "8 meters"],
+                options_hi: ["4 मीटर", "5 मीटर", "7 मीटर", "8 मीटर"],
+                correct: 1 // (b) 5 meters
+            },
+            {
+                id: 21, section: 1,
+                text_en: "Which is the WRONG term in the following series?<br><br><strong>BBD, CDG, DFJ, EHM, FKP</strong>",
+                text_hi: "निम्नलिखित श्रृंखला में गलत पद कौन-सा है?<br><br><strong>BBD, CDG, DFJ, EHM, FKP</strong>",
+                options_en: ["FKP", "DFJ", "CDG", "BBD"],
+                options_hi: ["FKP", "DFJ", "CDG", "BBD"],
+                correct: 0 // (a) FKP should be FJP
+            },
+            {
+                id: 22, section: 1,
+                text_en: "How many triangles are there in the given figure?",
+                text_hi: "दी गई आकृति में कितने त्रिभुज हैं?",
+                options_en: ["15", "22", "27", "30"],
+                options_hi: ["15", "22", "27", "30"],
+                correct: 2, // (c) 27
+                hasFigure: "q22"
+            },
+            {
+                id: 23, section: 1,
+                text_en: "Four number-pairs have been given, out of which three are alike in some manner and one is different. Select the number-pair that is different.",
+                text_hi: "चार संख्या-युग्म दिए गए हैं, जिनमें से तीन किसी प्रकार से समान हैं और एक भिन्न है। भिन्न संख्या-युग्म का चयन कीजिए।",
+                options_en: ["17 : 204", "11 : 132", "7 : 84", "9 : 99"],
+                options_hi: ["17 : 204", "11 : 132", "7 : 84", "9 : 99"],
+                correct: 3 // (d) 9 : 99 (multiplied by 11 instead of 12)
+            },
+            {
+                id: 24, section: 1,
+                text_en: "A book which costs Rs. 40 is sold for 25% profit. If the cost of the book is increased by 10% and profit percentage remains the same, what would be the new selling price of the same book?",
+                text_hi: "40 रुपये मूल्य वाली एक पुस्तक को 25% लाभ पर बेचा जाता है। यदि पुस्तक के लागत मूल्य में 10% की वृद्धि की जाती है और लाभ प्रतिशत वही रहता है, तो उसी पुस्तक का नया विक्रय मूल्य क्या होगा?",
+                options_en: ["Rs. 55", "Rs. 58", "Rs. 52", "Rs. 48"],
+                options_hi: ["Rs. 55", "Rs. 58", "Rs. 52", "Rs. 48"],
+                correct: 0 // (a) 55
+            },
+            {
+                id: 25, section: 1,
+                text_en: "In the following question, select the odd letter/letters from the given alternatives.",
+                text_hi: "निम्नलिखित प्रश्न में, दिए गए विकल्पों में से विषम अक्षर/अक्षरों को चुनिए।",
+                options_en: ["OSX", "IMQ", "FJN", "NRV"],
+                options_hi: ["OSX", "IMQ", "FJN", "NRV"],
+                correct: 0 // (a) OSX is (+4, +5) instead of (+4, +4)
+            },
+
+            // --- SECTION 2: GENERAL AWARENESS (Q26-50) ---
+            {
+                id: 26, section: 2,
+                text_en: "Which of the following is a technique of watering plants by making use of narrow tubings which deliver water directly at the base of the plant?",
+                text_hi: "निम्नलिखित में से कौन-सी सकरी नलिका का उपयोग करके पौधों को पानी देने की तकनीक है, जिससे पानी सीधे पौधे की जड़ों तक पहुंचता है?",
+                options_en: ["Sub-irrigation", "Drip irrigation", "Step farming", "Sprinkler irrigation"],
+                options_hi: ["उप-सिंचाई", "ड्रिप सिंचाई", "स्टेप फार्मिंग", "स्प्रिंकलर सिंचाई"],
+                correct: 1 // (b)
+            },
+            {
+                id: 27, section: 2,
+                text_en: "Which of the following is the main source of revenue to the government?",
+                text_hi: "निम्नलिखित में से कौन सा सरकार के राजस्व का मुख्य स्रोत है?",
+                options_en: ["Sales tax", "Excise duty", "Income tax", "Entertainment tax"],
+                options_hi: ["बिक्री कर", "उत्पाद शुल्क", "आयकर", "मनोरंजन कर"],
+                correct: 2 // (c)
+            },
+            {
+                id: 28, section: 2,
+                text_en: "Consider the following statements regarding the India-Uzbekistan Joint Military Exercise DUSTLIK-VI:<br>1. DUSTLIK-VI marks the first edition of the India-Uzbekistan joint military exercise, initiated in 2025.<br>2. The exercise involves the use of drones, counter-unmanned aerial systems (UAS), and logistics support from the Air Force.<br><br>Which of the statements given above is/are correct?",
+                text_hi: "भारत-उज्बेकिस्तान संयुक्त सैन्य अभ्यास DUSTLIK-VI के संबंध में निम्नलिखित कथनों पर विचार करें:<br>1. DUSTLIK-VI भारत-उज्बेकिस्तान संयुक्त सैन्य अभ्यास के पहले संस्करण का प्रतीक है, जो 2025 में शुरू हुआ था।<br>2. इस अभ्यास में ड्रोन, काउंटर-मानवरहित हवाई प्रणाली (UAS) और वायु सेना से रसद सहायता का उपयोग शामिल है।<br><br>उपरोक्त कथनों में से कौन-सा/से सही है/हैं?",
+                options_en: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+                options_hi: ["केवल 1", "केवल 2", "1 और 2 दोनों", "न तो 1 और न ही 2"],
+                correct: 2 // (c) Both
+            },
+            {
+                id: 29, section: 2,
+                text_en: "Assertion (A): The angle of the Earth's axis affects the intensity of seasons.<br>Reason (R): A greater axial tilt would result in more extreme seasonal changes.",
+                text_hi: "अभिकथन (A): पृथ्वी के अक्ष का कोण ऋतुओं की तीव्रता को प्रभावित करता है।<br>कारण (R): अधिक अक्षीय झुकाव के परिणामस्वरूप अधिक चरम मौसमी परिवर्तन होंगे।",
+                options_en: ["Both A and R are true, and R is the correct explanation of A", "Both A and R are true, but R is NOT the correct explanation of A", "A is true, but R is false", "A is false, but R is true"],
+                options_hi: ["A और R दोनों सत्य हैं, और R, A की सही व्याख्या है", "A और R दोनों सत्य हैं, लेकिन R, A की सही व्याख्या नहीं है", "A सत्य है, लेकिन R असत्य है", "A असत्य है, लेकिन R सत्य है"],
+                correct: 0 // (a)
+            },
+            {
+                id: 30, section: 2,
+                text_en: "By which constitutional amendment was the jurisdiction of the Supreme Court and the High Courts curtailed?",
+                text_hi: "किस संवैधानिक संशोधन द्वारा सर्वोच्च न्यायालय और उच्च न्यायालयों के क्षेत्राधिकार में कटौती की गई थी?",
+                options_en: ["35th Constitutional Amendment Act, 1974", "44th Constitutional Amendment Act, 1978", "43rd Constitutional Amendment Act, 1977", "42nd Constitutional Amendment Act, 1976"],
+                options_hi: ["35वां संविधान संशोधन अधिनियम, 1974", "44वां संविधान संशोधन अधिनियम, 1978", "43वां संविधान संशोधन अधिनियम, 1977", "42वां संविधान संशोधन अधिनियम, 1976"],
+                correct: 3 // (d) 42nd Amendment
+            },
+            {
+                id: 31, section: 2,
+                text_en: "Place the following rulers of Magadha in their chronological order of rule:<br>A. Bindusara, B. Bimbisara, C. Ashoka, D. Ajatasatru",
+                text_hi: "मगध के निम्नलिखित शासकों को उनके शासन के कालानुक्रमिक क्रम में व्यवस्थित करें:<br>A. बिन्दुसार, B. बिम्बिसार, C. अशोक, D. अजातशत्रु",
+                options_en: ["A, C, D, B", "B, D, C, A", "B, D, A, C (Bimbisara -> Ajatasatru -> Bindusara -> Ashoka)", "D, C, B, A"],
+                options_hi: ["A, C, D, B", "B, D, C, A", "B, D, A, C (बिम्बिसार -> अजातशत्रु -> बिन्दुसार -> अशोक)", "D, C, B, A"],
+                correct: 2 // (c) magadha rulers
+            },
+            {
+                id: 32, section: 2,
+                text_en: "Consider the following statements:<br>Statement I: The Wholesale Price Index (WPI) includes both goods and services, providing a comprehensive measure of inflation.<br>Statement II: The Producer Price Index (PPI) is preferred over WPI for its ability to capture price changes in the service sector and align with international standards.<br><br>Which one of the following is correct in respect of the above statements?",
+                text_hi: "निम्नलिखित कथनों पर विचार कीजिए:<br>कथन I: थोक मूल्य सूचकांक (WPI) में वस्तुओं और सेवाओं दोनों को शामिल किया जाता है, जो मुद्रास्फीति का व्यापक माप प्रदान करता है।<br>कथन II: सेवा क्षेत्र में मूल्य परिवर्तनों को पकड़ने और अंतर्राष्ट्रीय मानकों के अनुरूप होने के लिए PPI को WPI पर प्राथमिकता दी जाती है।<br><br>उपरोक्त कथनों के संबंध में निम्नलिखित में से कौन-सा सही है?",
+                options_en: ["Both Statement I and Statement II are correct and Statement II is the correct explanation for Statement I", "Both Statement I and Statement II are correct, but Statement II is not the correct explanation for Statement I", "Statement I is incorrect, but Statement II is correct", "Statement I is correct, but Statement II is incorrect"],
+                options_hi: ["कथन I और कथन II दोनों सही हैं और कथन II कथन I की सही व्याख्या है", "कथन I और कथन II दोनों सही हैं, लेकिन कथन II कथन I की सही व्याख्या नहीं है", "कथन I गलत है, लेकिन कथन II सही है", "कथन I सही है, लेकिन कथन II गलत है"],
+                correct: 2 // (c) WPI does NOT include services
+            },
+            {
+                id: 33, section: 2,
+                text_en: "In which of the following states is the Yumthang Valley located?",
+                text_hi: "युमथांग घाटी निम्नलिखित में से किस राज्य में स्थित है?",
+                options_en: ["Uttarakhand", "Himachal Pradesh", "Nagaland", "Sikkim"],
+                options_hi: ["उत्तराखंड", "हिमाचल प्रदेश", "नागालैंड", "सिक्किम"],
+                correct: 3 // (d) Sikkim
+            },
+            {
+                id: 34, section: 2,
+                text_en: "Urea, a commonly used nitrogen-based fertilizer, is prepared by the chemical reaction between ammonia and which of the following?",
+                text_hi: "यूरिया, आमतौर पर इस्तेमाल किया जाने वाला नाइट्रोजन आधारित उर्वरक, अमोनिया और निम्न में से किसके बीच अभिक्रिया द्वारा तैयार किया जाता है?",
+                options_en: ["Carbon dioxide", "Hydrogen", "Oxygen", "Sulphur"],
+                options_hi: ["कार्बन डाइऑक्साइड", "हाइड्रोजन", "ऑक्सीजन", "सल्फर"],
+                correct: 0 // (a)
+            },
+            {
+                id: 35, section: 2,
+                text_en: "Which one of the following does NOT mainly form a part of the Tax Revenue of State Governments in India?",
+                text_hi: "निम्नलिखित में से कौन सा मुख्य रूप से भारत में राज्य सरकारों के कर राजस्व का हिस्सा नहीं है?",
+                options_en: ["Land Revenue", "Registration Fee", "Customs Duty", "Commercial Tax"],
+                options_hi: ["भू-राजस्व", "पंजीकरण शुल्क", "सीमा शुल्क (Customs)", "वाणिज्यिक कर (Commercial Tax)"],
+                correct: 2 // (c) Customs duty is central
+            },
+            {
+                id: 36, section: 2,
+                text_en: "Ozone depletion in the stratosphere layer of the atmosphere is primarily responsible for which of the following?",
+                text_hi: "वायुमंडल की समताप मंडल (stratosphere) परत में ओजोन क्षरण मुख्य रूप से किसके लिए जिम्मेदार है?",
+                options_en: ["Increase of UV radiations reaching Earth's surface", "Cooling of Earth's atmosphere", "Increase in greenhouse effect", "Increase in infrared radiations in the troposphere"],
+                options_hi: ["पृथ्वी की सतह पर पराबैंगनी (UV) विकिरण में वृद्धि", "पृथ्वी के वायुमंडल का ठंडा होना", "ग्रीनहाउस प्रभाव में वृद्धि", "क्षोभमंडल में अवरक्त विकिरणों में वृद्धि"],
+                correct: 0 // (a)
+            },
+            {
+                id: 37, section: 2,
+                text_en: "During the Sultanate period, who among the following opined about Sanskrit: \"it was an old language and common people do not know it; only the Brahmanas do\"?",
+                text_hi: "सल्तनत काल के दौरान, निम्नलिखित में से किसने संस्कृत के बारे में कहा, 'यह एक पुरानी भाषा थी और आम लोग इसे नहीं जानते हैं; केवल ब्राह्मण जानते हैं'?",
+                options_en: ["Ziauddin Barani", "Ibn Battuta", "Sheikh Ahmad Sirhindi", "Amir Khusrau"],
+                options_hi: ["जियाउद्दीन बरनी", "इब्न बतूता", "शेख अहमद सरहिंदी", "अमीर खुसरो"],
+                correct: 3 // (d)
+            },
+            {
+                id: 38, section: 2,
+                text_en: "The Guadalupe River, which was recently in the news due to flooding, is located in which country?",
+                text_hi: "ग्वाडालूप नदी, जो हाल ही में बाढ़ के कारण खबरों में थी, किस देश में स्थित है?",
+                options_en: ["United States of America", "France", "United Kingdom", "China"],
+                options_hi: ["संयुक्त राज्य अमेरिका", "फ्रांस", "यूनाइटेड किंगडम", "चीन"],
+                correct: 0 // (a) USA
+            },
+            {
+                id: 39, section: 2,
+                text_en: "Which of the following statements is NOT correct about Viviparous and Oviparous Animals?",
+                text_hi: "जरायुज (Viviparous) और अंडज (Oviparous) जानवरों के बारे में कौन सा कथन सही नहीं है?",
+                options_en: ["Animals that lay fertilized or unfertilized eggs are Oviparous", "Fertilization can be either internal or external in Viviparous animals", "In Oviparous animals, the embryo receives nutrients from the egg yolk", "Humans, dogs, cats, and horses are examples of Viviparous animals"],
+                options_hi: ["पशु जो निषेचित या अनिषेचित अंडे देते हैं वे अंडज होते हैं", "जरायुज जानवरों में निषेचन आंतरिक या बाहरी हो सकता है", "अंडज जानवरों में भ्रूण को अंडे की जर्दी से पोषक तत्व मिलते हैं", "मनुष्य, कुत्ते, बिल्ली और घोड़े जरायुज जानवरों के उदाहरण हैं"],
+                correct: 1 // (b)
+            },
+            {
+                id: 40, section: 2,
+                text_en: "Assertion (A): The Non-cooperation Movement gained momentum through 1921-22.<br>Reason (R): Many lawyers such as Motilal Nehru, C. R. Das, C. Rajagopalachari, and Asaf Ali gave up their legal practices.",
+                text_hi: "अभिकथन (A): 1921-22 के दौरान असहयोग आंदोलन को गति मिली।<br>कारण (R): मोतीलाल नेहरू, सी. आर. दास, सी. राजगोपालाचारी और आसफ अली जैसे कई वकीलों ने अपनी वकालत छोड़ दी।",
+                options_en: ["Both A and R are true, and R is the correct explanation of A", "Both A and R are true, but R is not the correct explanation of A", "A is true, but R is false", "Both A and R are false"],
+                options_hi: ["A और R दोनों सही हैं और R, A की सही व्याख्या है", "A और R दोनों सही हैं, लेकिन R, A की सही व्याख्या नहीं है", "A सही है, लेकिन R गलत है", "A और R दोनों गलत हैं"],
+                correct: 0 // (a)
+            },
+            {
+                id: 41, section: 2,
+                text_en: "Firoz Tughlaq's welfare state included which of these administrative measures?<br>1. He treated Hindus as second-grade citizens and imposed Jiziya.<br>2. He increased the number of slaves by capturing the defeated soldiers and young persons.<br><br>Select the correct options:",
+                text_hi: "फिरोज तुगलक के कल्याणकारी राज्य में इनमें से कौन से प्रशासनिक उपाय शामिल थे?<br>1. उन्होंने हिंदुओं को दोयम दर्जे का नागरिक माना और जजिया कर लगाया।<br>2. उसने पराजित सैनिकों और युवाओं को बंदी बनाकर दासों की संख्या में वृद्धि की।<br><br>सही विकल्प चुनें:",
+                options_en: ["1 only", "2 only", "Both 1 and 2", "Neither 1 nor 2"],
+                options_hi: ["केवल 1", "केवल 2", "1 और 2 दोनों", "न तो 1 और न ही 2"],
+                correct: 2 // (c)
+            },
+            {
+                id: 42, section: 2,
+                text_en: "Which one of the following is NOT a component of photochemical smog?",
+                text_hi: "निम्नलिखित में से कौन सा प्रकाश रासायनिक स्मॉग (photochemical smog) का घटक नहीं है?",
+                options_en: ["Ozone", "Peroxyacetyl nitrate (PAN)", "Polyaromatic hydrocarbons", "Nitric oxide"],
+                options_hi: ["ओजोन", "पेरोक्सीएसिटाइल नाइट्रेट (PAN)", "पॉलीएरोमैटिक हाइड्रोकार्बन", "नाइट्रिक ऑक्साइड"],
+                correct: 2 // (c)
+            },
+            {
+                id: 43, section: 2,
+                text_en: "The recently excavated 4,000-year-old temple on Failaka Island in Kuwait is associated with which ancient civilization?",
+                text_hi: "कुवैत में फ़ैलाका द्वीप पर हाल ही में खोजा गया 4,000 वर्ष पुराना मंदिर किस प्राचीन सभ्यता से संबंधित है?",
+                options_en: ["Mesopotamian Civilization", "Dilmun Civilization", "Indus Valley Civilization", "Sumerian Civilization"],
+                options_hi: ["मेसोपोटामिया की सभ्यता", "दिल्मुन सभ्यता", "सिंधु घाटी सभ्यता", "सुमेरियन सभ्यता"],
+                correct: 1 // (b)
+            },
+            {
+                id: 44, section: 2,
+                text_en: "Which statement correctly describes the Pradhan Mantri Rashtriya Bal Puraskar 2025 presented in New Delhi?",
+                text_hi: "नई दिल्ली में प्रदान किए गए प्रधानमंत्री राष्ट्रीय बाल पुरस्कार 2025 का सही वर्णन कौन सा कथन करता है?",
+                options_en: ["It honours children below 18 for achievements across six categories", "It is awarded only for acts of bravery", "It replaced the National Sports Awards", "It is limited to achievements in science and technology only"],
+                options_hi: ["यह छह श्रेणियों में उपलब्धियों के लिए 18 वर्ष से कम उम्र के बच्चों को सम्मानित करता है", "यह केवल बहादुरी के कार्यों के लिए दिया जाता है", "इसने राष्ट्रीय खेल पुरस्कारों का स्थान ले लिया", "यह केवल विज्ञान और प्रौद्योगिकी में उपलब्धियों तक सीमित है"],
+                correct: 0 // (a)
+            },
+            {
+                id: 45, section: 2,
+                text_en: "What is the ray that comes back from the surface after reflection called?",
+                text_hi: "परावर्तन के बाद सतह से वापस आने वाली किरण को क्या कहा जाता है?",
+                options_en: ["Incident ray", "Refracted ray", "Reflected ray", "Diffused ray"],
+                options_hi: ["आपतित किरण", "अपवर्तित किरण", "परावर्तित किरण", "विसरित किरण"],
+                correct: 2 // (c)
+            },
+            {
+                id: 46, section: 2,
+                text_en: "Which of the following blood vessels carries blood from the heart to the kidneys?",
+                text_hi: "निम्नलिखित में से कौन सी रक्त वाहिका हृदय से गुर्दे (kidneys) तक रक्त ले जाती है?",
+                options_en: ["Renal artery", "Coronary artery", "Vena cava", "Renal vein"],
+                options_hi: ["रीनल धमनी (Renal artery)", "कोरोनरी धमनी", "वेना कावा", "रीनल शिरा (Renal vein)"],
+                correct: 0 // (a)
+            },
+            {
+                id: 47, section: 2,
+                text_en: "Which disease was recently added to the World Health Organization's list of neglected tropical diseases (NTDs) due to its high mortality rate and association with extreme poverty?",
+                text_hi: "किस बीमारी को हाल ही में विश्व स्वास्थ्य संगठन की उपेक्षित उष्णकटिबंधीय बीमारियों (NTDs) की सूची में जोड़ा गया था, क्योंकि इसकी मृत्यु दर उच्च है और यह अत्यधिक गरीबी से जुड़ी है?",
+                options_en: ["Leishmaniasis", "Noma", "Dengue", "Chikungunya"],
+                options_hi: ["लीशमैनियासिस", "नोमा (Noma)", "डेंगू", "चिकनगुनिया"],
+                correct: 1 // (b)
+            },
+            {
+                id: 48, section: 2,
+                text_en: "Identify the incorrect statement about the Khajuraho Group of Monuments.",
+                text_hi: "खजुराहो स्मारक समूह के बारे में गलत कथन की पहचान करें।",
+                options_en: ["The temples were built in the short span of a hundred years, from 950-1050 AD", "Out of the 85 original temples, 22 have survived till today", "They were listed as a UNESCO World Heritage Site in the year 1985", "Under the vision of the Chandela Rajputs the temples were conceived and constructed"],
+                options_hi: ["मंदिरों का निर्माण 950-1050 ईस्वी तक सौ वर्षों की छोटी अवधि में किया गया था", "मूल 85 मंदिरों में से 22 आज भी सुरक्षित हैं", "इन्हें वर्ष 1985 में यूनेस्को की विश्व धरोहर स्थल के रूप में सूचीबद्ध किया गया था", "चंदेल राजपूतों के संरक्षण में इन मंदिरों की कल्पना और निर्माण किया गया था"],
+                correct: 2 // (c) Listed in 1986
+            },
+            {
+                id: 49, section: 2,
+                text_en: "Assertion (A): The Union executive consists of the President, the Vice-President, the Prime Minister, the council of ministers, and the attorney general of India.<br>Reason (R): A Minister who is a member of one house of Parliament has the right to speak and take part in proceedings of the other house and can vote in both houses.",
+                text_hi: "अभिकथन (A): केंद्रीय कार्यपालिका में राष्ट्रपति, उपराष्ट्रपति, प्रधानमंत्री, मंत्रिपरिषद और भारत के महान्यायवादी शामिल होते हैं।<br>कारण (R): एक मंत्री जो संसद के किसी एक सदन का सदस्य होता है, उसे दूसरे सदन की कार्यवाही में बोलने और भाग लेने का अधिकार होता है और वह दोनों सदनों में मतदान कर सकता है।",
+                options_en: ["Both A and R are true and R is the correct explanation of A", "Both A and R are true but R is not the correct explanation of A", "A is true, but R is false", "A is false, but R is true"],
+                options_hi: ["A और R दोनों सही हैं और R, A की सही व्याख्या है", "A और R दोनों सही हैं, लेकिन R, A की सही व्याख्या नहीं है", "A सही है, लेकिन R गलत है", "A गलत है, लेकिन R सही है"],
+                correct: 2 // (c) R is false because a minister can only vote in their own house
+            },
+            {
+                id: 50, section: 2,
+                text_en: "Who among the following is allowed to take part in Parliamentary proceedings in spite of not being a member of the Parliament?",
+                text_hi: "संसद का सदस्य न होने के बावजूद निम्नलिखित में से किसे संसदीय कार्यवाही में भाग लेने की अनुमति है?",
+                options_en: ["Attorney General of India", "Chief Justice of India", "Comptroller and Auditor General of India", "Chief Election Commissioner"],
+                options_hi: ["भारत के महान्यायवादी (Attorney General)", "भारत के मुख्य न्यायाधीश", "भारत के नियंत्रक एवं महालेखा परीक्षक", "मुख्य चुनाव आयुक्त"],
+                correct: 0 // (a)
+            },
+
+            // --- SECTION 3: QUANTITATIVE APTITUDE (Q51-75) ---
+            {
+                id: 51, section: 3,
+                text_en: "Rampur is 100 km from Sitapur. At 3 pm Bharat Express leaves Rampur for Sitapur and travels at a constant speed of 30 kmph. One hour later, Laxman Mail leaves Sitapur for Rampur and travels at a constant speed of 40 kmph. Each train stops at every 10 km from its starting point and remains there for 15 minutes. Which train is nearer to Rampur when they meet?",
+                text_hi: "रामपुर, सीतापुर से 100 किमी दूर है। दोपहर 3 बजे भारत एक्सप्रेस रामपुर से सीतापुर के लिए रवाना होती है और 30 किमी/घंटा की निरंतर गति से चलती है। एक घंटे बाद, लक्ष्मण मेल सीतापुर से रामपुर के लिए रवाना होती है और 40 किमी/घंटा की निरंतर गति से चलती है। प्रत्येक ट्रेन अपने शुरुआती बिंदु से हर 10 किमी पर रुकती है और वहां 15 मिनट तक रहती है। जब वे मिलती हैं तो रामपुर के करीब कौन सी ट्रेन होगी?",
+                options_en: ["Both are equidistant", "Laxman Mail", "Bharat Express", "None of these / इनमें से कोई नहीं"],
+                options_hi: ["दोनों बराबर दूरी पर हैं (समदूरस्थ)", "लक्ष्मण मेल", "भारत एक्सप्रेस", "इनमें से कोई नहीं"],
+                correct: 0 // (a)
+            },
+            {
+                id: 52, section: 3,
+                text_en: "If <strong>x = √2 + √3 + √5</strong>, then find the value of:<br><strong>(x - √5) + 1 / (x - √5)</strong>",
+                text_hi: "यदि <strong>x = √2 + √3 + √5</strong> है, तो मान ज्ञात कीजिए:<br><strong>(x - √5) + 1 / (x - √5)</strong>",
+                options_en: ["2√3", "2√3 + √3", "√5", "2√3 - √5"],
+                options_hi: ["2√3", "2√3 + √3", "√5", "2√3 - √5"],
+                correct: 0 // (a)
+            },
+            {
+                id: 53, section: 3,
+                text_en: "Given that LM || QR and line segment LM divides triangle PQR such that area of quadrilateral LMRQ is twice the area of triangle PLM, then what will be the ratio of PL / PQ?",
+                text_hi: "दिया गया है कि LM || QR और LM, ΔPQR को इस प्रकार विभाजित करता है कि समलम्ब LMRQ का क्षेत्रफल ΔPLM के क्षेत्रफल का दोगुना है, तो PL / PQ का मान होगा?",
+                options_en: ["1 / √2", "1 / √3", "√2 / √3", "√3"],
+                options_hi: ["1 / √2", "1 / √3", "√2 / √3", "√3"],
+                correct: 1 // (b)
+            },
+            {
+                id: 54, section: 3,
+                text_en: "A train running at a speed of 60 km/hr crosses a platform double its length in 32.4 seconds. What is the length of the train?",
+                text_hi: "60 किमी/घंटा की चाल से दौड़ रही एक रेलगाड़ी, अपनी लंबाई से दोगुनी लंबाई के प्लेटफार्म को 32.4 सेकंड में पार करती है। रेलगाड़ी की लंबाई क्या है?",
+                options_en: ["180 m.", "360 m.", "240 m.", "320 m."],
+                options_hi: ["180 मीटर", "360 मीटर", "240 मीटर", "320 मीटर"],
+                correct: 0 // (a)
+            },
+            {
+                id: 55, section: 3,
+                text_en: "A and B can complete a piece of work in 45 days. A can complete the whole work in 33 1/3% less time than B. They started work alternatively starting from A on the first day, then B on the second day, then both work together on the third day with another person C and again A works on the fourth day, repeating this cycle. If the work is completed in 16 days, what fraction of the total work was done by C?",
+                text_hi: "A और B किसी काम को 45 दिनों में पूरा कर सकते हैं। A काम को B से 33 1/3% कम समय में पूरा कर सकता है। वे बारी-बारी से काम करते हैं, पहले दिन A, दूसरे दिन B, तीसरे दिन दोनों एक अन्य व्यक्ति C के साथ मिलकर और चौथे दिन फिर A, और यही चक्र जारी रहता है। इस तरह काम 16 दिनों में पूरा हो जाता है। कुल कार्य का कितना हिस्सा C द्वारा किया गया?",
+                options_en: ["142 / 525", "243 / 525", "193 / 225", "172 / 225"],
+                options_hi: ["142 / 525", "243 / 525", "193 / 225", "172 / 225"],
+                correct: 3 // (d)
+            },
+            {
+                id: 56, section: 3,
+                text_en: "The value of:<br><strong>sin² 5° + sin² 25° + sin² 45° + ... + sin² 65° + sin² 85°</strong> is equal to:",
+                text_hi: "मान क्या होगा:<br><strong>sin² 5° + sin² 25° + sin² 45° + ... + sin² 65° + sin² 85°</strong> किसके बराबर है?",
+                options_en: ["2.5", "3", "1.5", "2"],
+                options_hi: ["2.5", "3", "1.5", "2"],
+                correct: 0 // (a)
+            },
+            {
+                id: 57, section: 3,
+                text_en: "A shopkeeper purchased two qualities of pulses at the rate of Rs. 200 per quintal and Rs. 260 per quintal. In 52 quintals of the second quality, how much pulses of the first quality should be mixed so that by selling the resulting mixture at Rs. 300 per quintal, he gains a profit of 25%?",
+                text_hi: "एक दुकानदार ने 200 रुपये प्रति क्विंटल और 260 रुपये प्रति क्विंटल की दर से दो प्रकार की दालें खरीदीं। दूसरी गुणवत्ता वाली दाल के 52 क्विंटल में, पहली गुणवत्ता की कितनी दाल मिलानी चाहिए ताकि प्राप्त मिश्रण को 300 रुपये प्रति क्विंटल पर बेचने पर उसे 25% का लाभ हो?",
+                options_en: ["100 quintal", "104 quintal", "26 quintal", "None of these"],
+                options_hi: ["100 क्विंटल", "104 क्विंटल", "26 क्विंटल", "इनमें से कोई नहीं"],
+                correct: 2 // (c) 26
+            },
+            {
+                id: 58, section: 3,
+                text_en: "Variables a, b, c, and d are such that a is the interest on b, b is the interest on c, and c is the interest on d. If in all three conditions the rate of interest and time period are same, which term will show the ratio of a to d?",
+                text_hi: "a, b, c तथा d चार राशियाँ इस तरह हैं कि a, b का ब्याज है, b, c का ब्याज है तथा c, d का ब्याज है। यदि तीनों स्थितियों में ब्याज दर तथा समय समान हो, तो a तथा d के बीच के अनुपात को किस व्यंजक से दिखाया जाएगा?",
+                options_en: ["b : c", "b² : c²", "b³ : c³", "c² : b²"],
+                options_hi: ["b : c", "b² : c²", "b³ : c³", "c² : b²"],
+                correct: 2 // (c)
+            },
+            {
+                id: 59, section: 3,
+                text_en: "There are 40 boys in a class and their average age is 16 years. A 17-year-old boy leaves and another boy comes in his place, making the average age 15.875 years. What is the age of the new boy?",
+                text_hi: "एक कक्षा में 40 लड़के हैं और उनकी औसत आयु 16 वर्ष है। 17 वर्ष का एक लड़का चला जाता है और उसके स्थान पर दूसरा लड़का आ जाता है, जिससे औसत आयु 15.875 वर्ष हो जाती है। नए लड़के की आयु क्या होगी?",
+                options_en: ["15 years / वर्ष", "14.5 years / वर्ष", "12 years / वर्ष", "17 years / वर्ष"],
+                options_hi: ["15 वर्ष", "14.5 वर्ष", "12 वर्ष", "17 वर्ष"],
+                correct: 2 // (c) (Adjusted to Option C to align mathematically and with answer key)
+            },
+            {
+                id: 60, section: 3,
+                text_en: "If α and β are the roots of the equation <strong>3x² - 13x + 14 = 0</strong>, then what is the value of <strong>(α / β) + (β / α)</strong>?",
+                text_hi: "यदि α तथा β समीकरण <strong>3x² - 13x + 14 = 0</strong> के शून्यक (roots) हैं, तो <strong>(α / β) + (β / α)</strong> का मान क्या है?",
+                options_en: ["65 / 28", "53 / 14", "9", "85 / 42"],
+                options_hi: ["65 / 28", "53 / 14", "9", "85 / 42"],
+                correct: 3 // (d)
+            },
+            {
+                id: 61, section: 3,
+                text_en: "If the fourth term of an arithmetic progression is 14 and the 12th term is 70, then what will be the first term?",
+                text_hi: "यदि किसी समांतर श्रेणी का चौथा पद 14 है और 12वां पद 70 है, तो पहला पद क्या होगा?",
+                options_en: ["-10", "-7", "+7", "+10"],
+                options_hi: ["-10", "-7", "+7", "+10"],
+                correct: 1 // (b)
+            },
+            {
+                id: 62, section: 3,
+                text_en: "The height of a circular cylinder is increased six times and its base area is decreased to one-ninth of its initial value. The new curved surface area of the cylinder will change by:",
+                text_hi: "किसी बेलन की ऊंचाई 6 गुना तक बढ़ा दी जाती है तथा आधार का क्षेत्रफल 1/9 भाग तक घटा दिया जाता है। तो बेलन का वक्र पृष्ठीय क्षेत्रफल कितना हो जाएगा?",
+                options_en: ["2 times / 2 गुना", "1/2 times / आधा", "2/3 times / 2/3 गुना", "3/2 times / 3/2 गुना"],
+                options_hi: ["2 गुना", "आधा (1/2 गुना)", "2/3 गुना", "3/2 गुना"],
+                correct: 0 // (a)
+            },
+            {
+                id: 63, section: 3,
+                text_en: "Some friends planned to go on a picnic and spend Rs. 108 on food. Three of them did not turn up. As a result, each of the remaining friends had to pay Rs. 3 more than their initial share. How many friends attended the picnic?",
+                text_hi: "कुछ दोस्तों ने पिकनिक पर जाकर खाद्य पदार्थ पर ₹ 108 खर्च करने की योजना बनाई। उनमें से तीन पिकनिक पर नहीं पहुँचे। परिणामस्वरूप शेष दोस्तों में से प्रत्येक को ₹ 3 अतिरिक्त देने पड़े। पिकनिक में शामिल दोस्तों की संख्या कितनी थी?",
+                options_en: ["15", "9", "12", "6"],
+                options_hi: ["15", "9", "12", "6"],
+                correct: 1 // (b) 9 (Adjusted options to make B represent 9, matching key 63: B)
+            },
+            {
+                id: 64, section: 3,
+                text_en: "The perimeter of a rhombus is 40 cm and the measure of one of its angles is 60°. What is its area?",
+                text_hi: "एक समचतुर्भुज का परिमाप 40 सेमी है और एक कोण का माप 60° है, तो इसका क्षेत्रफल है:",
+                options_en: ["25√3 cm²", "50√3 cm²", "75√3 cm²", "100 cm²"],
+                options_hi: ["25√3 सेमी²", "50√3 सेमी²", "75√3 सेमी²", "100 सेमी²"],
+                correct: 1 // (b)
+            },
+            {
+                id: 65, section: 3,
+                text_en: "A and B can complete a piece of work in 8 days, while B and C can complete the same work in 12 days. If A, B, and C together can complete the work in 6 days, then how many days will A and C together take to complete the work?",
+                text_hi: "A और B एक कार्य को 8 दिन में पूरा कर सकते हैं, जबकि B और C उसी कार्य को 12 दिन में पूरा कर सकते हैं। यदि A, B और C तीनों मिलकर इस कार्य को 6 दिन में पूरा कर सकते हैं तो A और C उसी कार्य को कितने दिनों में पूरा करेंगे?",
+                options_en: ["16 days", "10 days", "12 days", "8 days"],
+                options_hi: ["16 दिन", "10 दिन", "12 दिन", "8 दिन"],
+                correct: 3 // (d)
+            },
+            {
+                id: 66, section: 3,
+                text_en: "If the average of y and 1/y is 1, then what will be the value of:<br><strong>98y¹⁰ + 14 / y⁵</strong>",
+                text_hi: "यदि y तथा 1/y का औसत 1 हो, तो <strong>98y¹⁰ + 14 / y⁵</strong> का मान क्या होगा?",
+                options_en: ["112", "115", "108", "120"],
+                options_hi: ["112", "115", "108", "120"],
+                correct: 0 // (a)
+            },
+            {
+                id: 67, section: 3,
+                text_en: "The areas of three fields are 165 m², 195 m², and 90 m² respectively. Flower beds of equal length are to be made in all three fields. If the width of each bed is 3m, what is the maximum possible length of these beds?",
+                text_hi: "तीन खेतों के क्षेत्रफल क्रमशः 165 वर्ग मी., 195 वर्ग मी. तथा 90 वर्ग मी. हैं। खेतों में बराबर लंबाई की क्यारियां बनाई जाती हैं। यदि प्रत्येक क्यारी की चौड़ाई 3 मीटर हो तो फूलों की क्यारी की अधिकतम लंबाई क्या होगी?",
+                options_en: ["7 m.", "9 m.", "5 m.", "15 m."],
+                options_hi: ["7 मीटर", "9 मीटर", "5 मीटर", "15 मीटर"],
+                correct: 2 // (c)
+            },
+            {
+                id: 68, section: 3,
+                text_en: "Triangle ABC is an equilateral triangle of side 14 cm. A semicircle is drawn with BC as diameter to meet AB at D and AC at E. Find the area of the shaded region (bulging out of the triangle).",
+                text_hi: "ΔABC एक 14 सेमी. भुजा वाला समबाहु त्रिभुज है, BC को व्यास मानकर एक अर्धवृत्त बनाया जाता है, जो AB को D पर तथा AC को E पर काटता है, तो छायांकित भाग का क्षेत्रफल ज्ञात कीजिए।",
+                options_en: ["49(π/3 - √3) cm²", "49(π/3 - √3/2) cm²", "49(π - √3) cm²", "49(π/2 - √3/2) cm²"],
+                options_hi: ["49(π/3 - √3) सेमी²", "49(π/3 - √3/2) सेमी²", "49(π - √3) सेमी²", "49(π/2 - √3/2) सेमी²"],
+                correct: 1 // (b) (matches 68: B in key)
+            },
+            {
+                id: 69, section: 3,
+                text_en: "The ratio between the present ages of A and B is 5 : 3 respectively. The ratio between A's age 4 years ago and B's age 4 years hence is 1 : 1. What is the ratio between A's age 4 years hence and B's age 4 years ago?",
+                text_hi: "A एवं B की वर्तमान आयु का अनुपात क्रमशः 5 : 3 है। 4 वर्ष पहले A की आयु एवं 4 वर्ष बाद B की आयु का अनुपात 1 : 1 है। 4 वर्ष बाद A की आयु एवं 4 वर्ष पहले B की आयु का अनुपात क्या होगा?",
+                options_en: ["1 : 3", "3 : 1", "2 : 1", "4 : 1"],
+                options_hi: ["1 : 3", "3 : 1", "2 : 1", "4 : 1"],
+                correct: 1 // (b) (Adjusted options so B represents 3:1, matching key 69: B)
+            },
+            {
+                id: 70, section: 3,
+                text_en: "A car completes a journey in 10 hours. If it covers half of the journey at 40 kmph and the remaining half at 60 kmph, the total distance covered by the car is:",
+                text_hi: "एक कार 10 घंटे में यात्रा पूरी करती है, यदि वह कार यात्रा का आधा भाग 40 किमी./घंटा की चाल से तथा शेष आधा 60 किमी./घंटा की चाल से तय करती है तो कार ने कितनी दूरी तय की?",
+                options_en: ["400 km", "480 km", "380 km", "300 km"],
+                options_hi: ["400 किमी", "480 किमी", "380 किमी", "300 किमी"],
+                correct: 1 // (b)
+            },
+            {
+                id: 71, section: 3,
+                text_en: "Find the value of:<br><strong>sin(π/20) × sin(3π/20) × sin(5π/20) × sin(7π/20) × sin(9π/20)</strong>",
+                text_hi: "मान है:<br><strong>sin(π/20) × sin(3π/20) × sin(5π/20) × sin(7π/20) × sin(9π/20)</strong>",
+                options_en: ["-1", "1 / 16", "0", "1"],
+                options_hi: ["-1", "1 / 16", "0", "1"],
+                correct: 1 // (b)
+            },
+            {
+                id: 72, section: 3,
+                text_en: "The total number of students in a class is 52. The number of boys is two fewer than the number of girls. If the average weight of the boys is 60 kg and the average weight of all the students is 52 kg, then find the average weight of the girls.",
+                text_hi: "एक कक्षा में कुल छात्रों की संख्या 52 है। लड़कों की संख्या, लड़कियों से 2 कम है। यदि लड़कों का औसत वजन 60 किग्रा. है, तो लड़कियों का औसत वजन ज्ञात करें यदि सभी छात्रों का औसत वजन 52 किग्रा. है।",
+                options_en: ["40 Kg", "44.59 Kg", "43.59 Kg", "45 Kg"],
+                options_hi: ["40 किग्रा", "44.59 किग्रा", "43.59 किग्रा", "45 किग्रा"],
+                correct: 1 // (b)
+            },
+            {
+                id: 73, section: 3,
+                text_en: "If <strong>x = √3 / 2</strong>, then what will be the value of:<br><strong>(√(1+x) + √(1-x)) / (√(1+x) - √(1-x))</strong>",
+                text_hi: "यदि <strong>x = √3 / 2</strong> है, तो मान होगा:<br><strong>(√(1+x) + √(1-x)) / (√(1+x) - √(1-x))</strong>",
+                options_en: ["2", "√3 / 2", "√3", "2√3"],
+                options_hi: ["2", "√3 / 2", "√3", "2√3"],
+                correct: 2 // (c) (Adjusted options so C represents √3, matching key 73: C)
+            },
+            {
+                id: 74, section: 3,
+                text_en: "The number of employees in an office two months ago was n. The manager recruited p% new employees last month and q% employees left the office this month. If the total number of employees in the office is currently n, then what will be the value of (p-q)?",
+                text_hi: "एक ऑफिस में दो माह पूर्व कर्मचारियों की संख्या n थी। मैनेजर ने पिछले माह p% नए कर्मचारियों की भर्ती की तथा इस माह q% कर्मचारी ऑफिस छोड़कर चले गए। यदि अभी ऑफिस में कुल कर्मचारियों की संख्या n है, तो (p-q) का मान होगा?",
+                options_en: ["pq", "pq / 100", "p / q", "q / p"],
+                options_hi: ["pq", "pq / 100", "p / q", "q / p"],
+                correct: 1 // (b)
+            },
+            {
+                id: 75, section: 3,
+                text_en: "A builder borrowed Rs. 2550 and had to repay it in two equal annual installments at the rate of 4% compounded annually. How much will each installment be?",
+                text_hi: "एक भवन निर्माता ने ₹ 2550 उधार लिए, तो 4% वार्षिक चक्रवृद्धि ब्याज की दर पर दो वर्षों के अंतराल से दो बराबर वार्षिक किस्तों में वापस करने थे। प्रत्येक किस्त कितने रुपये की होगी?",
+                options_en: ["Rs. 1352", "Rs. 1377", "Rs. 1275", "Rs. 1283"],
+                options_hi: ["1352 रुपये", "1377 रुपये", "1275 रुपये", "1283 रुपये"],
+                correct: 0 // (a)
+            },
+
+            // --- SECTION 4: ENGLISH LANGUAGE (Q76-100) ---
+            {
+                id: 76, section: 4,
+                text_en: "Identify the part of the sentence that contains an error:<br><br><strong>We have to accept (A) / that driving vehicle (B) / require expertise. (C) / No error (D)</strong>",
+                text_hi: "वाक्य के उस भाग की पहचान करें जिसमें त्रुटि है:<br><br><strong>We have to accept (A) / that driving vehicle (B) / require expertise. (C) / No error (D)</strong>",
+                options_en: ["We have to accept", "that driving vehicle", "require expertise", "No error"],
+                options_hi: ["We have to accept", "that driving vehicle", "require expertise", "No error"],
+                correct: 2 // (c)
+            },
+            {
+                id: 77, section: 4,
+                text_en: "Identify the segment in the sentence that contains a grammatical error:<br><br>\"In the kitchen, the knife, with its sleek design and fantastic engineering, <strong>was a sharpest</strong>, effortlessly slicing through the ripe tomatoes to demonstrate its superior cutting ability.\"",
+                text_hi: "वाक्य में उस खंड की पहचान करें जिसमें व्याकरण संबंधी त्रुटि है:<br><br>\"In the kitchen, the knife, with its sleek design and fantastic engineering, <strong>was a sharpest</strong>, effortlessly slicing through the ripe tomatoes to demonstrate its superior cutting ability.\"",
+                options_en: ["In the kitchen, the knife, with its sleek design and fantastic engineering", "through the ripe tomatoes to demonstrate its superior cutting ability", "was a sharpest, effortlessly slicing", "No error"],
+                options_hi: ["In the kitchen, the knife, with its sleek design and fantastic engineering", "through the ripe tomatoes to demonstrate its superior cutting ability", "was a sharpest, effortlessly slicing", "No error"],
+                correct: 2 // (c)
+            },
+            {
+                id: 78, section: 4,
+                text_en: "Identify the part of the sentence that contains an error:<br><br><strong>The postman travelled by the cycle, often wading (A) / through swamps or passed through jungles (B) / in order to reach the villages. (C) / No Error (D)</strong>",
+                text_hi: "वाक्य के उस भाग की पहचान करें जिसमें त्रुटि है:<br><br><strong>The postman travelled by the cycle, often wading (A) / through swamps or passed through jungles (B) / in order to reach the villages. (C) / No Error (D)</strong>",
+                options_en: ["The postman travelled by the cycle, often wading", "through swamps or passed through jungles", "in order to reach the villages", "No Error"],
+                options_hi: ["The postman travelled by the cycle, often wading", "through swamps or passed through jungles", "in order to reach the villages", "No Error"],
+                correct: 1 // (b)
+            },
+            {
+                id: 79, section: 4,
+                text_en: "Fill in the blank with the most appropriate word:<br><br>\"I ________ to return by the 3rd of the month.\"",
+                text_hi: "रिक्त स्थान की पूर्ति हेतु सबसे उपयुक्त शब्द का चयन करें:<br><br>\"I ________ to return by the 3rd of the month.\"",
+                options_en: ["strategize", "program", "plan", "project"],
+                options_hi: ["strategize", "program", "plan", "project"],
+                correct: 2 // (c)
+            },
+            {
+                id: 80, section: 4,
+                text_en: "Fill in the blank with the most appropriate word:<br><br>\"The Department has ________ a complaint against Mr. Bakshi.\"",
+                text_hi: "रिक्त स्थान की पूर्ति हेतु सबसे उपयुक्त शब्द का चयन करें:<br><br>\"The Department has ________ a complaint against Mr. Bakshi.\"",
+                options_en: ["expressed", "registered", "informed", "noted"],
+                options_hi: ["expressed", "registered", "informed", "noted"],
+                correct: 1 // (b)
+            },
+            {
+                id: 81, section: 4,
+                text_en: "Select the option that best expresses the meaning of the given idiom/phrase:<br><br><strong>Go back to the drawing board</strong>",
+                text_hi: "दिए गए मुहावरे/लोकोक्ति का सही अर्थ व्यक्त करने वाले विकल्प का चयन करें:<br><br><strong>Go back to the drawing board</strong>",
+                options_en: ["To start over", "To fall", "To sleep", "To joke with someone"],
+                options_hi: ["नये सिरे से शुरुआत करना (To start over)", "गिरना (To fall)", "सोना (To sleep)", "किसी के साथ मज़ाक करना (To joke)"],
+                correct: 0 // (a)
+            },
+            {
+                id: 82, section: 4,
+                text_en: "Select the option that best expresses the meaning of the given idiom/phrase:<br><br><strong>Of the first water</strong>",
+                text_hi: "दिए गए मुहावरे/लोकोक्ति का सही अर्थ व्यक्त करने वाले विकल्प का चयन करें:<br><br><strong>Of the first water</strong>",
+                options_en: ["Leading a comfortable life", "Acting contrary to one's interests", "Critically important", "Highest quality"],
+                options_hi: ["आरामदायक जीवन जीना", "अपने हितों के विपरीत कार्य करना", "अत्यंत महत्वपूर्ण", "सर्वोत्तम गुणवत्ता (Highest quality)"],
+                correct: 3 // (d)
+            },
+            {
+                id: 83, section: 4,
+                text_en: "Choose the correct alternative to improve the underlined part of the sentence. If no improvement is needed, select 'No improvement':<br><br>\"Einstein was one of the <u>wisest men</u> that ever lived.\"",
+                text_hi: "वाक्य के रेखांकित भाग को सुधारने के लिए सही विकल्प का चयन करें। यदि सुधार की आवश्यकता नहीं है, तो 'No improvement' चुनें:<br><br>\"Einstein was one of the <u>wisest men</u> that ever lived.\"",
+                options_en: ["wisests man", "wise man", "wisest man", "No improvement"],
+                options_hi: ["wisests man", "wise man", "wisest man", "No improvement"],
+                correct: 3 // (d)
+            },
+            {
+                id: 84, section: 4,
+                text_en: "Choose the correct alternative to improve the underlined part of the sentence:<br><br>\"Venezuelans <u>were being</u> deprived of food and medicines for the past year.\"",
+                text_hi: "वाक्य के रेखांकित भाग को सुधारने के लिए सही विकल्प का चयन करें:<br><br>\"Venezuelans <u>were being</u> deprived of food and medicines for the past year.\"",
+                options_en: ["was", "are", "have been", "No improvement"],
+                options_hi: ["was", "are", "have been", "No improvement"],
+                correct: 2 // (c)
+            },
+            {
+                id: 85, section: 4,
+                text_en: "Select the word that BEST expresses the meaning of the given word in bold:<br><br><strong>CROWN</strong>",
+                text_hi: "दिए गए बोल्ड शब्द के समान अर्थ वाले शब्द का चयन करें:<br><br><strong>CROWN</strong>",
+                options_en: ["Frown", "Apex", "Base", "Scorn"],
+                options_hi: ["Frown", "Apex (शीर्ष)", "Base", "Scorn"],
+                correct: 1 // (b)
+            },
+            {
+                id: 86, section: 4,
+                text_en: "Select the word that BEST expresses the meaning of the given word in bold:<br><br><strong>PROGENY</strong>",
+                text_hi: "दिए गए बोल्ड शब्द के समान अर्थ वाले शब्द का चयन करें:<br><br><strong>PROGENY</strong>",
+                options_en: ["Offspring", "Savage", "Sacred", "Effective"],
+                options_hi: ["Offspring (संतान)", "Savage", "Sacred", "Effective"],
+                correct: 0 // (a)
+            },
+            {
+                id: 87, section: 4,
+                text_en: "Select the word that is opposite in meaning (antonym) to the given word:<br><br><strong>Tractable</strong>",
+                text_hi: "दिए गए शब्द का विलोम शब्द (antonym) चुनें:<br><br><strong>Tractable</strong>",
+                options_en: ["Immobile", "Stubborn", "Docile", "Flexible"],
+                options_hi: ["अचल (Immobile)", "जिद्दी/हठी (Stubborn)", "विनम्र (Docile)", "लचीला (Flexible)"],
+                correct: 1 // (b)
+            },
+            {
+                id: 88, section: 4,
+                text_en: "Select the most appropriate synonym of the given word:<br><br><strong>Detrimental</strong>",
+                text_hi: "दिए गए शब्द का सबसे उपयुक्त पर्यायवाची शब्द चुनें:<br><br><strong>Detrimental</strong>",
+                options_en: ["Intellectual", "Friendly", "Smart", "Injurious"],
+                options_hi: ["Intellectual", "Friendly", "Smart", "Injurious (हानिकारक)"],
+                correct: 3 // (d)
+            },
+            {
+                id: 89, section: 4,
+                text_en: "Arrange the labeled sentences in the most logical order to form a coherent paragraph:<br><br><strong>P.</strong> Biographies of great men can also help us in learning good manners.<br><strong>Q.</strong> Courtesy and politeness is the key to good manners.<br><strong>R.</strong> No doubt these are little words but if they are spoken at the right moment and in a soft and sweet voice, they are bound to work wonders.<br><strong>S.</strong> The use of polite words like \"Sorry\", \"Please\", \"Thank you\", \"Beg your pardon\", \"Sir\" etc. creates a healthy impact on the minds of others.",
+                text_hi: "एक सुसंगत पैराग्राफ बनाने के लिए वाक्यों को सबसे तार्किक क्रम में व्यवस्थित करें:<br><br><strong>P.</strong> Biographies of great men can also help us in learning good manners.<br><strong>Q.</strong> Courtesy and politeness is the key to good manners.<br><strong>R.</strong> No doubt these are little words but if they are spoken at the right moment and in a soft and sweet voice, they are bound to work wonders.<br><strong>S.</strong> The use of polite words like \"Sorry\", \"Please\", \"Thank you\", \"Beg your pardon\", \"Sir\" etc. creates a healthy impact on the minds of others.",
+                options_en: ["PRSQ", "RPSQ", "QPSR", "SPQR"],
+                options_hi: ["PRSQ", "RPSQ", "QPSR", "SPQR"],
+                correct: 2 // (c)
+            },
+            {
+                id: 90, section: 4,
+                text_en: "Select the option that best expresses the same sentence in Indirect Speech:<br><br>\"The old man said to me, 'Life has taught me some hard lessons.'\"",
+                text_hi: "अप्रत्यक्ष कथन (Indirect Speech) में वाक्य का सबसे सही रूप चुनें:<br><br>\"The old man said to me, 'Life has taught me some hard lessons.'\"",
+                options_en: ["The old man tells me that life has taught him some hard lessons.", "The old man told me that life had taught him some hard lessons.", "The old man tells me that life is teaching him some hard lessons.", "The old man told me this that life has had taught him some hard lessons."],
+                options_hi: ["The old man tells me that life has taught him some hard lessons.", "The old man told me that life had taught him some hard lessons.", "The old man tells me that life is teaching him some hard lessons.", "The old man told me this that life has had taught him some hard lessons."],
+                correct: 1 // (b) (Adjusted options so B represents correct indirect speech, matching key 90: B)
+            },
+            {
+                id: 91, section: 4,
+                text_en: "Select the option that best expresses the same sentence in Passive Voice:<br><br>\"You need to offer them a better deal.\"",
+                text_hi: "कर्मवाच्य (Passive Voice) में वाक्य का सबसे सही रूप चुनें:<br><br>\"You need to offer them a better deal.\"",
+                options_en: ["They are in need of being offered a better deal by yourself.", "They need to be offered a better deal by you.", "A better deal is needed by them and you have to offer it.", "The offering of a better deal has to be done by you for their need."],
+                options_hi: ["They are in need of being offered a better deal by yourself.", "They need to be offered a better deal by you.", "A better deal is needed by them and you have to offer it.", "The offering of a better deal has to be done by you for their need."],
+                correct: 1 // (b)
+            },
+            {
+                id: 92, section: 4,
+                text_en: "Read the passage carefully and fill in the blank (92) with the most appropriate word:<br><br>\"________ (92) the course of the development of different life-forms heredity-which, in plain English, is unconscious memory generated in the first life-form...\"",
+                text_hi: "गद्यांश को ध्यान से पढ़ें और रिक्त स्थान (92) के लिए सबसे उपयुक्त शब्द चुनें:<br><br>\"________ (92) the course of the development of different life-forms heredity-which, in plain English, is unconscious memory generated in the first life-form...\"",
+                options_en: ["Into", "In", "Inside", "Onto"],
+                options_hi: ["Into", "In", "Inside", "Onto"],
+                correct: 1 // (b)
+            },
+            {
+                id: 93, section: 4,
+                text_en: "Fill in the blank (93) with the most appropriate word:<br><br>\"...unconscious memory generated in the first life-form and ________ (93) through all the different species-is the sole factor in...\"",
+                text_hi: "रिक्त स्थान (93) के लिए सबसे उपयुक्त शब्द चुनें:<br><br>\"...unconscious memory generated in the first life-form and ________ (93) through all the different species-is the sole factor in...\"",
+                options_en: ["transmit", "transmitting", "to transmit", "transmitted"],
+                options_hi: ["transmit", "transmitting", "to transmit", "transmitted"],
+                correct: 3 // (d)
+            },
+            {
+                id: 94, section: 4,
+                text_en: "Fill in the blank (94) with the most appropriate word:<br><br>\"...is the sole factor in the ________ (94) of the parent properties; while adaptation to surrounding conditions...\"",
+                text_hi: "रिक्त स्थान (94) के लिए सबसे उपयुक्त शब्द चुनें:<br><br>\"...is the sole factor in the ________ (94) of the parent properties; while adaptation to surrounding conditions...\"",
+                options_en: ["preserve", "preservable", "preservation", "preserving"],
+                options_hi: ["preserve", "preservable", "preservation", "preserving"],
+                correct: 2 // (c)
+            },
+            {
+                id: 95, section: 4,
+                text_en: "Fill in the blank (95) with the most appropriate word:<br><br>\"...natural selection in the struggle ________ (95) existence, and partner selection...\"",
+                text_hi: "रिक्त स्थान (95) के लिए सबसे उपयुक्त शब्द चुनें:<br><br>\"...natural selection in the struggle ________ (95) existence, and partner selection...\"",
+                options_en: ["for", "from", "form", "off"],
+                options_hi: ["for", "from", "form", "off"],
+                correct: 0 // (a)
+            },
+            {
+                id: 96, section: 4,
+                text_en: "Fill in the blank (96) with the most appropriate word:<br><br>\"...and partner selection in the struggle of the males for ________ (96) are the principal factors in the differentiation of species.\"",
+                text_hi: "रिक्त स्थान (96) के लिए सबसे उपयुक्त शब्द चुनें:<br><br>\"...and partner selection in the struggle of the males for ________ (96) are the principal factors in the differentiation of species.\"",
+                options_en: ["females", "feminity", "feminine", "woman"],
+                options_hi: ["females", "feminity", "feminine", "woman"],
+                correct: 0 // (a)
+            },
+            {
+                id: 97, section: 4,
+                text_en: "Select the word OPPOSITE in meaning to the given word in bold:<br><br><strong>VERACITY</strong>",
+                text_hi: "दिए गए बोल्ड शब्द का विलोम शब्द (antonym) चुनें:<br><br><strong>VERACITY</strong>",
+                options_en: ["Deceit", "Condor", "Probity", "Rectitude"],
+                options_hi: ["छल/कपट (Deceit)", "Condor", "Probity", "Rectitude"],
+                correct: 0 // (a)
+            },
+            {
+                id: 98, section: 4,
+                text_en: "Select the word OPPOSITE in meaning to the given word in bold:<br><br><strong>MEEK</strong>",
+                text_hi: "दिए गए बोल्ड शब्द का विलोम शब्द (antonym) चुनें:<br><br><strong>MEEK</strong>",
+                options_en: ["Gentle", "Impatient", "Submissive", "Influence"],
+                options_hi: ["Gentle", "अधीर/उतावला (Impatient)", "Submissive", "Influence"],
+                correct: 1 // (b)
+            },
+            {
+                id: 99, section: 4,
+                text_en: "Select the correctly spelt word from the options:",
+                text_hi: "दिए गए विकल्पों में से सही वर्तनी (spelling) वाले शब्द का चयन करें:",
+                options_en: ["Consitancey", "Constitancy", "Consistencey", "Consistency"],
+                options_hi: ["Consitancey", "Constitancy", "Consistencey", "Consistency"],
+                correct: 3 // (d)
+            },
+            {
+                id: 100, section: 4,
+                text_en: "Select the correctly spelt word from the options:",
+                text_hi: "दिए गए विकल्पों में से सही वर्तनी (spelling) वाले शब्द का चयन करें:",
+                options_en: ["Disparaege", "Disparagae", "Disparage", "Diisparage"],
+                options_hi: ["Disparaege", "Disparagae", "Disparage", "Diisparage"],
+                correct: 2 // (c)
+            }
+        ];
+
+        // --- WEB AUDIO API OFFLINE SYNTHESIZER ---
+        let audioCtx = null;
+        let bgMusicGain = null;
+        let bgOscs = [];
+        let musicPlaying = false;
+        let musicInterval = null;
+        let volumeLevel = 0.5;
+
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function playClickSound() {
+            try {
+                initAudio();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                
+                const now = audioCtx.currentTime;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(500, now);
+                osc.frequency.exponentialRampToValueAtTime(100, now + 0.05);
+                
+                gain.gain.setValueAtTime(0.08 * volumeLevel, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+                
+                osc.start(now);
+                osc.stop(now + 0.05);
+            } catch(e) { console.log(e); }
+        }
+
+        function playSaveSound() {
+            try {
+                initAudio();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                
+                const now = audioCtx.currentTime;
+                
+                // Note 1 (E5)
+                const osc1 = audioCtx.createOscillator();
+                const gain1 = audioCtx.createGain();
+                osc1.connect(gain1);
+                gain1.connect(audioCtx.destination);
+                osc1.type = 'sine';
+                osc1.frequency.setValueAtTime(659.25, now);
+                gain1.gain.setValueAtTime(0.08 * volumeLevel, now);
+                gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+                osc1.start(now);
+                osc1.stop(now + 0.12);
+                
+                // Note 2 (A5)
+                const osc2 = audioCtx.createOscillator();
+                const gain2 = audioCtx.createGain();
+                osc2.connect(gain2);
+                gain2.connect(audioCtx.destination);
+                osc2.type = 'sine';
+                osc2.frequency.setValueAtTime(880.00, now + 0.06);
+                gain2.gain.setValueAtTime(0.08 * volumeLevel, now + 0.06);
+                gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+                osc2.start(now + 0.06);
+                osc2.stop(now + 0.2);
+            } catch(e) { console.log(e); }
+        }
+
+        function playSectionCompletedSound() {
+            try {
+                initAudio();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                
+                const now = audioCtx.currentTime;
+                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+                notes.forEach((freq, i) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, now + i * 0.08);
+                    gain.gain.setValueAtTime(0.1 * volumeLevel, now + i * 0.08);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.35);
+                    osc.start(now + i * 0.08);
+                    osc.stop(now + i * 0.08 + 0.35);
+                });
+            } catch(e) { console.log(e); }
+        }
+
+        function playWarningSound() {
+            try {
+                initAudio();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                
+                const now = audioCtx.currentTime;
+                for (let i = 0; i < 3; i++) {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(880, now + i * 0.35);
+                    gain.gain.setValueAtTime(0.12 * volumeLevel, now + i * 0.35);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.35 + 0.2);
+                    osc.start(now + i * 0.35);
+                    osc.stop(now + i * 0.35 + 0.2);
+                }
+            } catch(e) { console.log(e); }
+        }
+
+        function playSubmitSound() {
+            try {
+                initAudio();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                
+                const now = audioCtx.currentTime;
+                const chords = [
+                    [261.63, 329.63, 392.00], // C4 major
+                    [349.23, 440.00, 523.25], // F4 major
+                    [392.00, 493.88, 587.33], // G4 major
+                    [523.25, 659.25, 783.99, 1046.50] // C5 major triad + C6
+                ];
+                
+                chords.forEach((chord, step) => {
+                    const stepTime = now + step * 0.25;
+                    chord.forEach((freq) => {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.connect(gain);
+                        gain.connect(audioCtx.destination);
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(freq, stepTime);
+                        gain.gain.setValueAtTime(0.08 * volumeLevel, stepTime);
+                        gain.gain.exponentialRampToValueAtTime(0.001, stepTime + 0.4);
+                        osc.start(stepTime);
+                        osc.stop(stepTime + 0.4);
+                    });
+                });
+            } catch(e) { console.log(e); }
+        }
+
+        // Ambient concentration music player (repetitive chord pads)
+        function startBgMusic() {
+            try {
+                initAudio();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                
+                if (musicPlaying) return;
+                musicPlaying = true;
+                
+                bgMusicGain = audioCtx.createGain();
+                bgMusicGain.connect(audioCtx.destination);
+                
+                const chords = [
+                    [130.81, 164.81, 196.00, 246.94, 293.66], // C3, E3, G3, B3, D4 (Cmaj9)
+                    [110.00, 130.81, 164.81, 196.00, 246.94], // A2, C3, E3, G3, B3 (Am9)
+                    [87.31, 130.81, 174.61, 220.00, 261.63],  // F2, C3, F3, A3, C4 (Fmaj9)
+                    [98.00, 146.83, 196.00, 246.94, 293.66]   // G2, D3, G3, B3, D4 (G9)
+                ];
+                
+                let chordIdx = 0;
+                
+                function triggerPad() {
+                    if (!musicPlaying) return;
+                    const now = audioCtx.currentTime;
+                    const chord = chords[chordIdx];
+                    chordIdx = (chordIdx + 1) % chords.length;
+                    
+                    bgOscs = [];
+                    chord.forEach((freq, i) => {
+                        const osc = audioCtx.createOscillator();
+                        const filter = audioCtx.createBiquadFilter();
+                        const gain = audioCtx.createGain();
+                        
+                        osc.connect(filter);
+                        filter.connect(gain);
+                        gain.connect(bgMusicGain);
+                        
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(freq, now + i * 0.04);
+                        
+                        filter.type = 'lowpass';
+                        filter.frequency.setValueAtTime(350, now);
+                        
+                        gain.gain.setValueAtTime(0, now);
+                        gain.gain.linearRampToValueAtTime(0.012 * volumeLevel, now + 1.2 + i * 0.04);
+                        gain.gain.setValueAtTime(0.012 * volumeLevel, now + 4.5);
+                        gain.gain.exponentialRampToValueAtTime(0.0001, now + 5.8);
+                        
+                        osc.start(now);
+                        osc.stop(now + 6.0);
+                        bgOscs.push(osc);
+                    });
+                }
+                
+                triggerPad();
+                musicInterval = setInterval(triggerPad, 5800);
+                
+                document.getElementById('music-toggle-btn').innerHTML = '<svg viewBox="0 0 24 24" id="audio-icon-on"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>';
+            } catch(e) { console.log(e); }
+        }
+
+        function stopBgMusic() {
+            musicPlaying = false;
+            if (musicInterval) {
+                clearInterval(musicInterval);
+                musicInterval = null;
+            }
+            bgOscs.forEach(o => { try { o.stop(); } catch(e) {} });
+            bgOscs = [];
+            document.getElementById('music-toggle-btn').innerHTML = '<svg viewBox="0 0 24 24" id="audio-icon-off"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM4.3 3L3 4.3 8.7 10H4v4h3l5 5v-6.7l4.3 4.3c-.5.4-1.1.7-1.8.9v2.1c1.2-.3 2.3-.9 3.2-1.7l3 3 1.3-1.3L4.3 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>';
+        }
+
+        // --- APP STATE MANAGEMENT ---
+        let candidateName = "";
+        let rollNumber = "";
+        let negMarkingEnabled = true;
+        
+        let currentQuestionIdx = 0;
+        let selectedLanguage = "en";
+        
+        // Timer settings
+        let mainTimerSeconds = 3600; // 60 minutes
+        let sectionTimerSeconds = 900; // 15 minutes
+        let timerInterval = null;
+        let startTimeStamp = 0;
+        let endTimeStamp = 0;
+        let warningPopupShown = false;
+        
+        // Answers and States
+        // Array of objects representing the candidate's state for each question
+        // States: 'unvisited', 'not-answered' (visited but skipped), 'answered', 'marked'
+        const candidateStates = Array.from({ length: 100 }, (_, i) => ({
+            id: i + 1,
+            selectedOption: null, // null or 0, 1, 2, 3
+            status: 'unvisited'
+        }));
+        
+        // Section mapping
+        const sectionsConfig = {
+            1: { name: "Reasoning", startQ: 1, endQ: 25, completed: false },
+            2: { name: "General Awareness", startQ: 26, endQ: 50, completed: false },
+            3: { name: "Quantitative Aptitude", startQ: 51, endQ: 75, completed: false },
+            4: { name: "English Language", startQ: 76, endQ: 100, completed: false }
+        };
+        
+        let activeSectionId = 1;
+
+        // Initialize Palette Sidebar buttons
+        function renderPaletteGrid() {
+            const gridEl = document.getElementById('palette-grid-el');
+            gridEl.innerHTML = "";
+            
+            candidateStates.forEach((qState, index) => {
+                const btn = document.createElement('button');
+                btn.className = `palette-btn ${qState.status}`;
+                btn.textContent = index + 1;
+                btn.id = `palette-q-${index + 1}`;
+                
+                // Disable button if not in the active section
+                const qNum = index + 1;
+                const sectionOfQ = getSectionOfQuestion(qNum);
+                
+                if (sectionOfQ !== activeSectionId) {
+                    btn.style.opacity = "0.5";
+                    btn.style.cursor = "not-allowed";
+                } else {
+                    btn.addEventListener('click', () => {
+                        playClickSound();
+                        saveCurrentQuestionStatus();
+                        currentQuestionIdx = index;
+                        renderQuestion(currentQuestionIdx);
+                    });
+                }
+                
+                gridEl.appendChild(btn);
+            });
+        }
+
+        function getSectionOfQuestion(qNum) {
+            if (qNum >= 1 && qNum <= 25) return 1;
+            if (qNum >= 26 && qNum <= 50) return 2;
+            if (qNum >= 51 && qNum <= 75) return 3;
+            if (qNum >= 76 && qNum <= 100) return 4;
+            return 1;
+        }
+
+        // Save current question response and update state before moving
+        function saveCurrentQuestionStatus() {
+            const qState = candidateStates[currentQuestionIdx];
+            const selectedOpt = getSelectedOptionIndex();
+            
+            qState.selectedOption = selectedOpt;
+            
+            // Update status only if it's not marked for review
+            if (qState.status !== 'marked') {
+                if (selectedOpt !== null) {
+                    qState.status = 'answered';
+                } else {
+                    if (qState.status === 'unvisited') {
+                        qState.status = 'not-answered';
+                    }
+                }
+            } else {
+                // If it is marked for review but now has a selected option, keep it marked but we save option
+                if (selectedOpt !== null) {
+                    qState.selectedOption = selectedOpt;
+                }
+            }
+            
+            updatePaletteButtonUI(currentQuestionIdx + 1);
+            updateOverallProgress();
+        }
+
+        function getSelectedOptionIndex() {
+            const selectedEl = document.querySelector('.option-item.selected');
+            if (!selectedEl) return null;
+            return parseInt(selectedEl.getAttribute('data-index'));
+        }
+
+        function updatePaletteButtonUI(qNum) {
+            const btn = document.getElementById(`palette-q-${qNum}`);
+            if (btn) {
+                const qState = candidateStates[qNum - 1];
+                btn.className = `palette-btn ${qState.status}`;
+                if (qNum - 1 === currentQuestionIdx) {
+                    btn.classList.add('active');
+                }
+            }
+        }
+
+        function updateOverallProgress() {
+            const answeredCount = candidateStates.filter(q => q.status === 'answered').length;
+            const percentage = (answeredCount / 100) * 100;
+            document.getElementById('test-progress-bar').style.width = `${percentage}%`;
+        }
+
+        // Render question details on screen
+        function renderQuestion(idx) {
+            const question = QUESTIONS[idx];
+            const qState = candidateStates[idx];
+            
+            // Set active class on palette buttons
+            document.querySelectorAll('.palette-btn').forEach(btn => btn.classList.remove('active'));
+            const activePaletteBtn = document.getElementById(`palette-q-${question.id}`);
+            if (activePaletteBtn) activePaletteBtn.classList.add('active');
+            
+            // Question Title
+            document.getElementById('question-title-text').textContent = `Question ${question.id} [${sectionsConfig[question.section].name}]`;
+            
+            // Question Text
+            const textEl = document.getElementById('question-text-el');
+            textEl.innerHTML = selectedLanguage === 'en' ? question.text_en : question.text_hi;
+            
+            // Handle SVGs / Figures dynamically
+            const figEl = document.getElementById('figure-display-el');
+            if (question.hasFigure) {
+                figEl.style.display = "flex";
+                figEl.className = "q-figure-container";
+                if (question.hasFigure === "q22") {
+                    figEl.innerHTML = `
+                        <svg width="220" height="150" viewBox="0 0 220 150" style="stroke:#1e1b4b; stroke-width:2.5; fill:none;">
+                            <!-- Outer Rectangle -->
+                            <rect x="20" y="20" width="120" height="100" />
+                            <!-- Diagonals -->
+                            <line x1="20" y1="20" x2="140" y2="120" />
+                            <line x1="140" y1="20" x2="20" y2="120" />
+                            <!-- Mid Lines -->
+                            <line x1="80" y1="20" x2="80" y2="120" />
+                            <line x1="20" y1="70" x2="140" y2="70" />
+                            <!-- Right Triangle -->
+                            <line x1="140" y1="20" x2="190" y2="70" />
+                            <line x1="140" y1="120" x2="190" y2="70" />
+                            <line x1="140" y1="70" x2="190" y2="70" />
+                        </svg>
+                    `;
+                } else if (question.hasFigure === "q14") {
+                    figEl.innerHTML = `
+                        <div style="display:flex; flex-direction:column; align-items:center; width:100%; max-width:500px; margin:10px auto;">
+                            <!-- Outer single container for the 6 boxes -->
+                            <div style="display:flex; border:2px solid #1e1b4b; width:100%; background:white; border-radius:4px; overflow:hidden; box-shadow:var(--shadow-md);">
+                                <!-- Column 1 -->
+                                <div style="flex:1; aspect-ratio:1; border-right:1.5px solid #1e1b4b; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; padding:8px; position:relative; font-weight:bold; font-size:14px; min-width:0; color:#1e1b4b;">
+                                    <div>T</div><div style="text-align:right;">◯</div>
+                                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);">X</div>
+                                    <div style="align-self:end;">S</div><div style="align-self:end; text-align:right;">=</div>
+                                </div>
+                                <!-- Column 2 -->
+                                <div style="flex:1; aspect-ratio:1; border-right:1.5px solid #1e1b4b; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; padding:8px; position:relative; font-weight:bold; font-size:14px; min-width:0; color:#1e1b4b;">
+                                    <div>=</div><div style="text-align:right;">S</div>
+                                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);">T</div>
+                                    <div style="align-self:end;">▢</div><div style="align-self:end; text-align:right;">C</div>
+                                </div>
+                                <!-- Column 3 -->
+                                <div style="flex:1; aspect-ratio:1; border-right:1.5px solid #1e1b4b; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; padding:8px; position:relative; font-weight:bold; font-size:14px; min-width:0; color:#1e1b4b;">
+                                    <div>C</div><div style="text-align:right;">▢</div>
+                                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);">=</div>
+                                    <div style="align-self:end;">+</div><div style="align-self:end; text-align:right;">S</div>
+                                </div>
+                                <!-- Column 4 -->
+                                <div style="flex:1; aspect-ratio:1; border-right:1.5px solid #1e1b4b; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; padding:8px; position:relative; font-weight:bold; font-size:14px; min-width:0; color:#1e1b4b;">
+                                    <div>S</div><div style="text-align:right;">+</div>
+                                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);">C</div>
+                                    <div style="align-self:end;">◯</div><div style="align-self:end; text-align:right;">▢</div>
+                                </div>
+                                <!-- Column 5 -->
+                                <div style="flex:1; aspect-ratio:1; border-right:1.5px solid #1e1b4b; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; padding:8px; position:relative; font-weight:bold; font-size:14px; min-width:0; color:#1e1b4b;">
+                                    <div>▢</div><div style="text-align:right;">◯</div>
+                                    <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);">S</div>
+                                    <div style="align-self:end;">★</div><div style="align-self:end; text-align:right;">+</div>
+                                </div>
+                                <!-- Column 6 (?) -->
+                                <div style="flex:1; aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:bold; min-width:0; color:#1e1b4b; background:#f8fafc;">
+                                    ?
+                                </div>
+                            </div>
+                            <!-- Labels row -->
+                            <div style="display:flex; width:100%; margin-top:6px; font-size:12px; color:var(--text-medium); font-weight:700; text-align:center;">
+                                <div style="flex:1;">(1)</div>
+                                <div style="flex:1;">(2)</div>
+                                <div style="flex:1;">(3)</div>
+                                <div style="flex:1;">(4)</div>
+                                <div style="flex:1;">(5)</div>
+                                <div style="flex:1;"></div>
+                            </div>
+                        </div>
+                    `;
+                }
+            } else {
+                figEl.style.display = "none";
+                figEl.innerHTML = "";
+            }
+            
+            // Options Container
+            const optsContainer = document.getElementById('options-container-el');
+            optsContainer.innerHTML = "";
+            
+            const optionsTexts = selectedLanguage === 'en' ? question.options_en : question.options_hi;
+            
+            optionsTexts.forEach((optText, oIdx) => {
+                const optItem = document.createElement('div');
+                optItem.className = "option-item";
+                if (qState.selectedOption === oIdx) {
+                    optItem.classList.add('selected');
+                }
+                optItem.setAttribute('data-index', oIdx);
+                
+                let optionContent = `<div class="option-radio"></div>`;
+                if (question.hasFigure === "q14") {
+                    let label = ['(a)', '(b)', '(c)', '(d)'][oIdx];
+                    let elements = [];
+                    if (oIdx === 0) elements = ["Y", "★", "▵", "▢", "◯"];
+                    else if (oIdx === 1) elements = ["X", "★", "▢", "Y", "◯"];
+                    else if (oIdx === 2) elements = ["+", "★", "▢", "Y", "◯"];
+                    else if (oIdx === 3) elements = ["▵", "★", "▢", "Y", "◯"];
+                    
+                    optionContent += `
+                        <div style="display:flex; align-items:center; gap:20px; width:100%;">
+                            <span style="font-weight:700; font-size:15px; color:var(--text-dark);">${label}</span>
+                            <div style="width:70px; height:70px; border:1.5px solid #1e1b4b; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; padding:6px; font-weight:bold; font-size:12px; position:relative; background:white; border-radius:4px; box-shadow:var(--shadow-sm); pointer-events:none; select:none; color:#1e1b4b;">
+                                <div style="display:flex; align-items:flex-start; justify-content:flex-start;">${elements[0]}</div>
+                                <div style="display:flex; align-items:flex-start; justify-content:flex-end; text-align:right;">${elements[1]}</div>
+                                <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%);">${elements[2]}</div>
+                                <div style="display:flex; align-items:flex-end; justify-content:flex-start; align-self:end;">${elements[3]}</div>
+                                <div style="display:flex; align-items:flex-end; justify-content:flex-end; align-self:end; text-align:right;">${elements[4]}</div>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    optionContent += `<div class="option-text">${optText}</div>`;
+                }
+                optItem.innerHTML = optionContent;
+                
+                optItem.addEventListener('click', () => {
+                    playClickSound();
+                    document.querySelectorAll('.option-item').forEach(item => item.classList.remove('selected'));
+                    optItem.classList.add('selected');
+                });
+                
+                optsContainer.appendChild(optItem);
+            });
+            
+            // Scroll back to top
+            document.getElementById('question-body-scroller').scrollTop = 0;
+            
+            // Mark for Review Button state
+            const markBtn = document.getElementById('mark-review-btn');
+            if (qState.status === 'marked') {
+                markBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Marked for Review</span>';
+                markBtn.style.background = "#ece7ff";
+                markBtn.style.color = "var(--secondary)";
+            } else {
+                markBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Mark For Review</span>';
+                markBtn.style.background = "#faf5ff";
+                markBtn.style.color = "var(--secondary)";
+            }
+        }
+
+        // --- TIMER & SECTION TRANSITION SYSTEM ---
+        function startTimer() {
+            warningPopupShown = false;
+            startTimeStamp = Date.now();
+            
+            timerInterval = setInterval(() => {
+                mainTimerSeconds--;
+                sectionTimerSeconds--;
+                
+                // Formats for displays
+                updateTimerUI(mainTimerSeconds, 'main-timer-text');
+                updateTimerUI(sectionTimerSeconds, 'section-timer-text');
+                
+                // Color Warning Alert
+                if (mainTimerSeconds <= 60 && !warningPopupShown) {
+                    warningPopupShown = true;
+                    document.getElementById('main-timer-box').classList.add('warning');
+                    playWarningSound();
+                    showLastMinuteWarning();
+                }
+                
+                // Section Timer complete
+                if (sectionTimerSeconds <= 0) {
+                    handleSectionCompleted();
+                }
+                
+                // Main Timer complete
+                if (mainTimerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    autoSubmitTest();
+                }
+            }, 1000);
+        }
+
+        function updateTimerUI(totalSecs, elementId) {
+            if (totalSecs < 0) totalSecs = 0;
+            const mins = Math.floor(totalSecs / 60);
+            const secs = totalSecs % 60;
+            const minStr = mins < 10 ? '0' + mins : mins;
+            const secStr = secs < 10 ? '0' + secs : secs;
+            document.getElementById(elementId).textContent = `${minStr}:${secStr}`;
+        }
+
+        function showLastMinuteWarning() {
+            document.getElementById('modal-title-text').textContent = "Warning! ⚠️";
+            document.getElementById('modal-desc-text').textContent = "Only 1 minute remaining in the Mock Test. Please check and submit soon!";
+            document.getElementById('modal-close-btn').textContent = "ACKNOWLEDGE";
+            
+            // Set button to simply close warning
+            const closeBtn = document.getElementById('modal-close-btn');
+            const newCloseBtn = closeBtn.cloneNode(true);
+            closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
+            
+            newCloseBtn.addEventListener('click', () => {
+                playClickSound();
+                document.getElementById('section-modal').style.display = "none";
+            });
+            
+            document.getElementById('section-modal').style.display = "flex";
+        }
+
+        function handleSectionCompleted() {
+            playSectionCompletedSound();
+            saveCurrentQuestionStatus();
+            
+            // Mark completed in tabs
+            const completedTab = document.querySelector(`.section-tab[data-section="${activeSectionId}"]`);
+            if (completedTab) {
+                completedTab.className = "section-tab completed";
+                completedTab.innerHTML = '<span>' + completedTab.querySelector('span').textContent + '</span><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>';
+            }
+            
+            if (activeSectionId < 4) {
+                const nextSectionId = activeSectionId + 1;
+                
+                // Show completed modal details
+                document.getElementById('modal-title-text').textContent = `${sectionsConfig[activeSectionId].name} Completed`;
+                document.getElementById('modal-desc-text').textContent = `The 15 minutes allocation for Section ${activeSectionId} is complete. Moving automatically to Section ${nextSectionId}: ${sectionsConfig[nextSectionId].name}.`;
+                document.getElementById('modal-close-btn').textContent = `PROCEED TO ${sectionsConfig[nextSectionId].name.toUpperCase()}`;
+                
+                // Set click action for transition
+                const closeBtn = document.getElementById('modal-close-btn');
+                const newCloseBtn = closeBtn.cloneNode(true);
+                closeBtn.parentNode.replaceChild(newCloseBtn, closeBtn);
+                
+                newCloseBtn.addEventListener('click', () => {
+                    playClickSound();
+                    document.getElementById('section-modal').style.display = "none";
+                    activateSection(nextSectionId);
+                });
+                
+                document.getElementById('section-modal').style.display = "flex";
+                
+                // Automatically move even if they don't click within 10 seconds
+                // Reset section timer to 15 mins for the next section
+                sectionTimerSeconds = 900; 
+                activeSectionId = nextSectionId;
+            } else {
+                // Submit test automatically
+                autoSubmitTest();
+            }
+        }
+
+        function activateSection(secId) {
+            activeSectionId = secId;
+            
+            // Update active state in Section tabs
+            document.querySelectorAll('.section-tab').forEach(tab => {
+                const tabSec = parseInt(tab.getAttribute('data-section'));
+                if (tabSec === secId) {
+                    tab.className = "section-tab active";
+                } else if (tabSec < secId) {
+                    tab.className = "section-tab completed";
+                } else {
+                    tab.className = "section-tab locked";
+                }
+            });
+            
+            // Unlock palettes for this section, lock others
+            renderPaletteGrid();
+            
+            // Jump to first question of the new section
+            currentQuestionIdx = sectionsConfig[secId].startQ - 1;
+            renderQuestion(currentQuestionIdx);
+        }
+
+        function autoSubmitTest() {
+            clearInterval(timerInterval);
+            endTimeStamp = Date.now();
+            playSubmitSound();
+            calculateResults();
+        }
+
+        // --- CALCULATE SCORING & RESULTS ---
+        function calculateResults() {
+            let correctCount = 0;
+            let wrongCount = 0;
+            let skippedCount = 0;
+            
+            candidateStates.forEach((qState, index) => {
+                const question = QUESTIONS[index];
+                if (qState.selectedOption === null) {
+                    skippedCount++;
+                } else {
+                    if (qState.selectedOption === question.correct) {
+                        correctCount++;
+                    } else {
+                        wrongCount++;
+                    }
+                }
+            });
+            
+            // Marks Calculation
+            const correctMarks = correctCount * 2.00;
+            const penalty = negMarkingEnabled ? (wrongCount * 0.50) : 0;
+            const totalScore = correctMarks - penalty;
+            const percentageScore = (totalScore / 200) * 100;
+            
+            // Time Taken
+            const secondsElapsed = Math.floor((endTimeStamp - startTimeStamp) / 1000);
+            const minsTaken = Math.floor(secondsElapsed / 60);
+            const secsTaken = secondsElapsed % 60;
+            
+            // Display Results
+            document.getElementById('res-candidate-name').textContent = candidateName || "Candidate";
+            document.getElementById('res-roll-number').textContent = rollNumber || "N/A";
+            
+            document.getElementById('res-marks-obtained').textContent = totalScore.toFixed(2);
+            document.getElementById('res-correct-count').textContent = correctCount;
+            document.getElementById('res-wrong-count').textContent = wrongCount;
+            document.getElementById('res-skipped-count').textContent = skippedCount;
+            document.getElementById('res-time-taken').textContent = `${minsTaken} mins ${secsTaken} secs`;
+            document.getElementById('res-percentage').textContent = `${percentageScore.toFixed(2)}%`;
+            
+            // Pass/Fail State (Threshold 33%)
+            const passBadge = document.getElementById('res-pass-fail-badge');
+            const isPass = percentageScore >= 33;
+            if (isPass) {
+                passBadge.textContent = "PASS";
+                passBadge.className = "pass-badge pass";
+            } else {
+                passBadge.textContent = "FAIL";
+                passBadge.className = "pass-badge fail";
+            }
+            
+            // Random Rank Generation (For attractive realism)
+            const generatedRank = Math.floor(Math.random() * 200) + 12;
+            document.getElementById('res-rank').textContent = `#${generatedRank} / 10,000`;
+            
+            // SVG circular stroke animation
+            const bar = document.getElementById('score-stroke-path');
+            const percentClamped = Math.max(0, Math.min(100, percentageScore));
+            bar.setAttribute('stroke-dasharray', `${percentClamped}, 100`);
+            
+            // Activate screen
+            switchScreen('result-screen');
+            startConfetti();
+        }
+
+        function switchScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(scr => scr.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            
+            // Hide timer box if not on test screen
+            if (screenId === 'test-screen') {
+                document.getElementById('main-timer-box').style.display = "flex";
+            } else {
+                document.getElementById('main-timer-box').style.display = "none";
+            }
+        }
+
+        // --- DYNAMIC CONFETTI ENGINE ---
+        let confettiActive = false;
+        let confettiParticles = [];
+        const confettiColors = ['#f43f5e', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899'];
+
+        function startConfetti() {
+            confettiActive = true;
+            confettiParticles = [];
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            for (let i = 0; i < 150; i++) {
+                confettiParticles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    r: Math.random() * 6 + 4,
+                    d: Math.random() * canvas.height,
+                    color: confettiColors[Math.floor(Math.random() * confettiColors.length)],
+                    tilt: Math.random() * 10 - 5,
+                    tiltAngleIncremental: Math.random() * 0.07 + 0.02,
+                    tiltAngle: 0
+                });
+            }
+            
+            function drawConfetti() {
+                if (!confettiActive) return;
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                confettiParticles.forEach((p, idx) => {
+                    p.tiltAngle += p.tiltAngleIncremental;
+                    p.y += (Math.cos(p.d) + 3 + p.r / 2) / 2;
+                    p.x += Math.sin(p.tiltAngle);
+                    p.tilt = Math.sin(p.tiltAngle - idx / 3) * 15;
+                    
+                    ctx.beginPath();
+                    ctx.lineWidth = p.r;
+                    ctx.strokeStyle = p.color;
+                    ctx.moveTo(p.x + p.tilt + p.r / 2, p.y);
+                    ctx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r / 2);
+                    ctx.stroke();
+                    
+                    if (p.y > canvas.height) {
+                        confettiParticles[idx] = {
+                            ...p,
+                            x: Math.random() * canvas.width,
+                            y: -20,
+                            tilt: Math.random() * 10 - 5
+                        };
+                    }
+                });
+                
+                requestAnimationFrame(drawConfetti);
+            }
+            
+            drawConfetti();
+        }
+
+        function stopConfetti() {
+            confettiActive = false;
+            const canvas = document.getElementById('confetti-canvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            }
+        }
+
+        // --- OFFLINE CERTIFICATE GRAPHICS RENDERER ---
+        function drawCertificateOnCanvas(canvas) {
+            const ctx = canvas.getContext('2d');
+            
+            // Clean slate
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, 1200, 850);
+            
+            // Outer double border
+            const grad = ctx.createLinearGradient(0, 0, 1200, 850);
+            grad.addColorStop(0, '#4f46e5');
+            grad.addColorStop(1, '#7c3aed');
+            
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = 16;
+            ctx.strokeRect(30, 30, 1140, 790);
+            
+            ctx.lineWidth = 4;
+            ctx.strokeRect(50, 50, 1100, 750);
+            
+            // Elegant Corner Lines
+            drawCertificateCorners(ctx);
+            
+            // Gold verified seal
+            drawGoldSeal(ctx, 1000, 670);
+            
+            // Text alignment setup
+            ctx.textAlign = 'center';
+            
+            // Header website name
+            ctx.fillStyle = '#0f172a';
+            ctx.font = 'bold 36px "Outfit", sans-serif';
+            ctx.fillText('POLAI EDUCATION HUB', 600, 125);
+            
+            ctx.fillStyle = '#7c3aed';
+            ctx.font = 'bold 16px "Inter", sans-serif';
+            ctx.fillText('LEADERS IN ONLINE EXAM PREPARATION', 600, 165);
+            
+            // Separator line
+            ctx.beginPath();
+            ctx.moveTo(480, 195);
+            ctx.lineTo(720, 195);
+            ctx.strokeStyle = '#e2e8f0';
+            ctx.lineWidth = 2.5;
+            ctx.stroke();
+            
+            // Certificate Title
+            ctx.fillStyle = '#1e1b4b';
+            ctx.font = 'italic 52px "Georgia", serif';
+            ctx.fillText('Certificate of Achievement', 600, 275);
+            
+            ctx.fillStyle = '#64748b';
+            ctx.font = '600 16px "Inter", sans-serif';
+            ctx.fillText('THIS IS PROUDLY PRESENTED TO', 600, 340);
+            
+            // Candidate name
+            ctx.fillStyle = '#4f46e5';
+            ctx.font = 'bold 44px "Outfit", sans-serif';
+            ctx.fillText(candidateName.toUpperCase(), 600, 410);
+            
+            // Name underline
+            ctx.beginPath();
+            ctx.moveTo(350, 430);
+            ctx.lineTo(850, 430);
+            ctx.strokeStyle = '#4f46e5';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            
+            // Description body
+            ctx.fillStyle = '#334155';
+            ctx.font = '500 18px "Inter", sans-serif';
+            ctx.fillText('for successfully completing the computer-based mock series', 600, 485);
+            ctx.font = 'bold 22px "Inter", sans-serif';
+            ctx.fillStyle = '#0f172a';
+            ctx.fillText('SSC CGL FULL MOCK TEST (SERIES 200)', 600, 525);
+            
+            // Score calculations
+            const totalScore = parseFloat(document.getElementById('res-marks-obtained').textContent);
+            const percentage = document.getElementById('res-percentage').textContent;
+            const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            
+            ctx.fillStyle = '#475569';
+            ctx.font = '600 18px "Inter", sans-serif';
+            ctx.fillText(`Marks Secured: ${totalScore.toFixed(2)} / 200`, 600, 585);
+            ctx.fillText(`Percentage: ${percentage}`, 600, 615);
+            ctx.fillText(`Date: ${dateStr}`, 600, 645);
+            
+            // Signature lines
+            ctx.fillStyle = '#0f172a';
+            ctx.font = 'italic 18px "Georgia", serif';
+            ctx.fillText('Polai Sir', 300, 725);
+            ctx.fillText('Authorized Signatory', 900, 725);
+            
+            ctx.beginPath();
+            ctx.moveTo(200, 735);
+            ctx.lineTo(400, 735);
+            ctx.moveTo(800, 735);
+            ctx.lineTo(1000, 735);
+            ctx.strokeStyle = '#cbd5e1';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            
+            ctx.fillStyle = '#64748b';
+            ctx.font = '13px "Inter", sans-serif';
+            ctx.fillText('Director, Polai Education Hub', 300, 760);
+            ctx.fillText('SSC Exam Coordinator', 900, 760);
+            
+            ctx.fillStyle = '#7c3aed';
+            ctx.font = 'bold 16px "Inter", sans-serif';
+            ctx.fillText('Best Wishes', 600, 775);
+            ctx.font = '12px "Inter", sans-serif';
+            ctx.fillStyle = '#94a3b8';
+            ctx.fillText('POLAI EDUCATION HUB © 2026', 600, 800);
+        }
+
+        function drawCertificateCorners(ctx) {
+            ctx.strokeStyle = '#7c3aed';
+            ctx.lineWidth = 2;
+            const offset = 60;
+            const size = 35;
+            
+            const points = [
+                [offset, offset, 1, 1],
+                [1200 - offset, offset, -1, 1],
+                [offset, 850 - offset, 1, -1],
+                [1200 - offset, 850 - offset, -1, -1]
+            ];
+            
+            points.forEach(([x, y, dx, dy]) => {
+                ctx.beginPath();
+                ctx.moveTo(x, y + size * dy);
+                ctx.lineTo(x, y);
+                ctx.lineTo(x + size * dx, y);
+                ctx.stroke();
+                
+                ctx.beginPath();
+                ctx.moveTo(x + 8 * dx, y + 25 * dy);
+                ctx.lineTo(x + 8 * dx, y + 8 * dy);
+                ctx.lineTo(x + 25 * dx, y + 8 * dy);
+                ctx.stroke();
+            });
+        }
+
+        function drawGoldSeal(ctx, cx, cy) {
+            ctx.save();
+            ctx.translate(cx, cy);
+            
+            // Outer golden star points
+            ctx.fillStyle = '#d97706';
+            for (let i = 0; i < 24; i++) {
+                ctx.rotate(Math.PI / 12);
+                ctx.fillRect(-22, -22, 44, 44);
+            }
+            
+            // Inner golden circle
+            ctx.beginPath();
+            ctx.arc(0, 0, 32, 0, Math.PI * 2);
+            ctx.fillStyle = '#f59e0b';
+            ctx.fill();
+            
+            ctx.beginPath();
+            ctx.arc(0, 0, 28, 0, Math.PI * 2);
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+            
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 8px "Inter", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('VERIFIED', 0, -4);
+            ctx.fillText('SSC 2026', 0, 8);
+            
+            ctx.restore();
+        }
+
+        // Trigger PNG Download
+        function triggerDownloadCertificatePNG() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1200;
+            canvas.height = 850;
+            
+            drawCertificateOnCanvas(canvas);
+            
+            const link = document.createElement('a');
+            link.download = `SSC_CGL_Certificate_${candidateName.replace(/\s+/g, '_')}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        // Trigger PDF Download via landscaped printing
+        function triggerDownloadCertificatePDF() {
+            const canvas = document.createElement('canvas');
+            canvas.width = 1200;
+            canvas.height = 850;
+            
+            drawCertificateOnCanvas(canvas);
+            
+            const dataUrl = canvas.toDataURL('image/png');
+            const printWin = window.open('', '_blank');
+            printWin.document.write(`
+                <html>
+                <head>
+                    <title>Certificate - ${candidateName}</title>
+                    <style>
+                        body {
+                            margin: 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            height: 100vh;
+                            background: white;
+                        }
+                        img {
+                            max-width: 100%;
+                            max-height: 100%;
+                            object-fit: contain;
+                        }
+                        @page {
+                            size: landscape;
+                            margin: 0;
+                        }
+                        @media print {
+                            body { background: none; }
+                            img { width: 100vw; height: 100vh; }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <img src="${dataUrl}" onload="window.print(); window.close();" />
+                </body>
+                </html>
+            `);
+            printWin.document.close();
+        }
+
+        // --- BUTTON HANDLERS & NAVIGATION ---
+        
+        // Starting the Test
+        document.getElementById('start-test-btn').addEventListener('click', () => {
+            const nameInput = document.getElementById('candidate-name').value.trim();
+            const rollInput = document.getElementById('roll-number').value.trim();
+            
+            if (!nameInput) {
+                alert("Please enter Candidate Name to begin.");
+                return;
+            }
+            
+            candidateName = nameInput;
+            rollNumber = rollInput || "N/A";
+            negMarkingEnabled = document.getElementById('neg-marking-toggle').checked;
+            
+            // Adjust negative marking display details
+            if (!negMarkingEnabled) {
+                document.getElementById('neg-marking-badge').textContent = "Incorrect: 0.00";
+            } else {
+                document.getElementById('neg-marking-badge').textContent = "Incorrect: -0.50";
+            }
+            
+            // Initialize music and start timer
+            playClickSound();
+            startBgMusic();
+            
+            // Set first section and first question active
+            activateSection(1);
+            startTimer();
+            
+            // Switch UI Screen
+            switchScreen('test-screen');
+        });
+
+        // Toggle Background Music
+        document.getElementById('music-toggle-btn').addEventListener('click', () => {
+            if (musicPlaying) {
+                stopBgMusic();
+            } else {
+                startBgMusic();
+            }
+        });
+
+        // Volume control slider
+        document.getElementById('volume-slider').addEventListener('input', (e) => {
+            volumeLevel = e.target.value / 100;
+            if (bgMusicGain) {
+                bgMusicGain.gain.setValueAtTime(volumeLevel, audioCtx.currentTime);
+            }
+        });
+
+        // Lang Dropdown Selector Change
+        document.getElementById('lang-selector-btn').addEventListener('change', (e) => {
+            selectedLanguage = e.target.value;
+            renderQuestion(currentQuestionIdx);
+        });
+
+        // Action: Save & Next
+        document.getElementById('save-next-btn').addEventListener('click', () => {
+            playSaveSound();
+            saveCurrentQuestionStatus();
+            
+            const nextIdx = currentQuestionIdx + 1;
+            const currentSectionEnd = sectionsConfig[activeSectionId].endQ - 1;
+            
+            if (currentQuestionIdx < currentSectionEnd) {
+                currentQuestionIdx = nextIdx;
+                renderQuestion(currentQuestionIdx);
+            } else {
+                // User is at the end of active section
+                alert("You have reached the end of the active section. The next section will unlock when the section timer completes.");
+            }
+        });
+
+        // Action: Previous
+        document.getElementById('prev-question-btn').addEventListener('click', () => {
+            playClickSound();
+            saveCurrentQuestionStatus();
+            
+            const prevIdx = currentQuestionIdx - 1;
+            const currentSectionStart = sectionsConfig[activeSectionId].startQ - 1;
+            
+            if (currentQuestionIdx > currentSectionStart) {
+                currentQuestionIdx = prevIdx;
+                renderQuestion(currentQuestionIdx);
+            } else {
+                alert("You cannot move to the previous section.");
+            }
+        });
+
+        // Action: Clear Response
+        document.getElementById('clear-response-btn').addEventListener('click', () => {
+            playClickSound();
+            
+            // Deselect items in DOM
+            document.querySelectorAll('.option-item').forEach(item => item.classList.remove('selected'));
+            
+            // Reset state
+            const qState = candidateStates[currentQuestionIdx];
+            qState.selectedOption = null;
+            
+            if (qState.status === 'answered') {
+                qState.status = 'not-answered';
+            }
+            
+            updatePaletteButtonUI(currentQuestionIdx + 1);
+            updateOverallProgress();
+        });
+
+        // Action: Mark For Review
+        document.getElementById('mark-review-btn').addEventListener('click', () => {
+            playClickSound();
+            const qState = candidateStates[currentQuestionIdx];
+            
+            // Toggle Mark state
+            if (qState.status === 'marked') {
+                const selectedOpt = getSelectedOptionIndex();
+                qState.status = selectedOpt !== null ? 'answered' : 'not-answered';
+            } else {
+                qState.status = 'marked';
+                // Save selection option too if selected
+                const selectedOpt = getSelectedOptionIndex();
+                if (selectedOpt !== null) {
+                    qState.selectedOption = selectedOpt;
+                }
+            }
+            
+            updatePaletteButtonUI(currentQuestionIdx + 1);
+            renderQuestion(currentQuestionIdx);
+        });
+
+        // Action: Restart Test
+        document.getElementById('restart-test-btn').addEventListener('click', () => {
+            playClickSound();
+            stopConfetti();
+            
+            // Reset form details
+            document.getElementById('candidate-name').value = "";
+            document.getElementById('roll-number').value = "";
+            
+            // Reset States
+            candidateStates.forEach(q => {
+                q.selectedOption = null;
+                q.status = 'unvisited';
+            });
+            
+            // Reset active variables
+            currentQuestionIdx = 0;
+            mainTimerSeconds = 3600;
+            sectionTimerSeconds = 900;
+            activeSectionId = 1;
+            
+            // Reset section status
+            document.querySelectorAll('.section-tab').forEach((tab, index) => {
+                tab.className = index === 0 ? "section-tab active" : "section-tab locked";
+                tab.innerHTML = `<span>${index + 1}. ${sectionsConfig[index + 1].name}</span>`;
+            });
+            
+            switchScreen('start-screen');
+        });
+
+        // Certificate Downloads
+        document.getElementById('dl-png-btn').addEventListener('click', () => {
+            playClickSound();
+            triggerDownloadCertificatePNG();
+        });
+
+        document.getElementById('dl-pdf-btn').addEventListener('click', () => {
+            playClickSound();
+            triggerDownloadCertificatePDF();
+        });
+
+    </script>
+</body>
+</html>
