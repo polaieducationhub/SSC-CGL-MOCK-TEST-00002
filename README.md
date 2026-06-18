@@ -1,95 +1,141 @@
 # 🎯 SSC CGL Mock Test 2026
 
-Welcome to **SSC CGL Mock Test 2026** by **Polai Education Hub**.
-
-This repository contains attractive and fully responsive SSC CGL Mock Tests with timer, score card, sound effects and certificate download option.
-
----
-
-## 🌐 Live Website
-
-👉 https://polaieducationhub.github.io/SSC-CGL-MOCK-TEST-00001/
+🔥 Free SSC CGL Tier-1 Mock Test Website  
+📚 New Exam Pattern 2026  
+⚡ Fast & Responsive UI  
+🎵 Attractive Design with Sound Effects  
+🌐 Fully Offline HTML Mock Test
 
 ---
 
-## 📚 Features
+## 📌 About Project
 
-✅ SSC CGL Tier-1 New Pattern
+This project provides FREE SSC CGL Tier-1 Mock Tests for students preparing for SSC CGL 2026.
 
-✅ 4 Sections
+✨ Features:
 
-- General Intelligence & Reasoning
-- General Awareness
-- Quantitative Aptitude
-- English Comprehension
-
-✅ Total Questions: 100
-
-✅ Total Time: 60 Minutes
-
-✅ Each Section: 15 Minutes
-
-✅ Automatic Section Change
-
-✅ Negative Marking
-
-✅ Instant Score Card
-
-✅ Attractive White UI
-
-✅ Mobile Friendly
-
-✅ Background Music
-
-✅ Certificate Download
+- ✅ New SSC CGL 2026 Pattern
+- ✅ 4 Sections
+- ✅ 15 Minutes Each Section
+- ✅ Total Time: 60 Minutes
+- ✅ Automatic Next Section
+- ✅ Instant Result
+- ✅ Attractive White UI
+- ✅ Sound Effects
+- ✅ Mobile Friendly
+- ✅ Offline HTML Support
+- ✅ Certificate Download
 
 ---
 
-## 🚀 Mock Tests
+## 📝 Sections
 
-| Mock Test | Link |
-|-----------|------|
-| Mock Test 1 | https://polaieducationhub.github.io/SSC-CGL-MOCK-TEST-00001/ |
-| Mock Test 2 | Coming Soon |
-| Mock Test 3 | Coming Soon |
-| Mock Test 4 | Coming Soon |
-| Mock Test 5 | Coming Soon |
-| ... | ... |
-| Mock Test 50 | Coming Soon |
+| Section | Questions | Time |
+|---------|-----------|------|
+| General Intelligence & Reasoning | 25 | 15 Min |
+| General Awareness | 25 | 15 Min |
+| Quantitative Aptitude | 25 | 15 Min |
+| English Comprehension | 25 | 15 Min |
+
+**Total Questions:** 100  
+**Total Marks:** 200  
+**Total Time:** 60 Minutes
+
+---
+
+## 🚀 Live Demo
+
+🌐 Website:
+
+https://polaieducationhub.github.io/SSC-CGL-MOCK-TEST-00001/
 
 ---
 
 ## 📺 YouTube Channel
 
-Subscribe for Daily SSC CGL Videos
+Subscribe for Daily SSC CGL Videos:
 
-🔗 https://youtube.com/@polaieducationhub
-
----
-
-## 📱 Telegram Channel
-
-Join Telegram for PDF & Updates
-
-🔗 https://t.me/YOUR_TELEGRAM_LINK
+https://youtube.com/@polaieducationhub
 
 ---
 
-## 💬 WhatsApp Channel
+## 📲 Join Telegram
 
-Join WhatsApp Channel
+Get PDFs, Mock Tests & Updates
 
-🔗 https://whatsapp.com/channel/YOUR_CHANNEL_LINK
+https://t.me/YOUR_TELEGRAM_LINK
 
 ---
 
-## 💳 Premium Mock Tests
+## 📱 WhatsApp Channel
 
-Premium Mock Tests Available
+Daily Current Affairs & Mock Test Updates
 
-Price: **₹11 Only**
+https://whatsapp.com/channel/YOUR_WHATSAPP_LINK
 
-UPI ID:
+---
 
-```text
-polaimath2026@ybl
+## 📷 Screenshot
+
+Add screenshot here:
+
+![SSC CGL Mock Test](screenshot.png)
+
+---
+
+## 💻 Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- GitHub Pages
+
+---
+
+## 📂 Folder Structure
+
+```
+SSC-CGL-MOCK-TEST/
+│
+├── index.html
+├── style.css
+├── script.js
+├── sound.mp3
+├── screenshot.png
+└── README.md
+```
+
+---
+
+## ⭐ Features Coming Soon
+
+- SSC CHSL Mock Test
+- Railway NTPC Mock Test
+- Current Affairs Quiz
+- Leaderboard
+- Dark Mode
+- AI Performance Analysis
+
+---
+
+## 🙏 Support
+
+If you like this project:
+
+⭐ Star this Repository  
+🍴 Fork this Repository  
+📢 Share with Friends  
+
+---
+
+## 👨‍💻 Developed By
+
+**Polai Education Hub**
+
+📺 YouTube: https://youtube.com/@polaieducationhub
+
+🎯 SSC CGL | CHSL | Railway | Current Affairs
+
+---
+
+### ⭐ Best of Luck for SSC CGL 2026 ⭐
